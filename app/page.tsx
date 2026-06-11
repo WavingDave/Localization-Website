@@ -126,76 +126,110 @@ export default function GamingLocalizationPortfolio() {
     {
       title: "The Last Flame",
       genre: "Roguelike Strategy Autobattler",
-      languages: "EN → DE",
       description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
+        "Recruit a party of unique heroes, fight deadly encounters, loot and craft powerful gear, discover and create thousands of synergetic builds! The Last Flame is an endless roguelike auto-battler in which you guide a righteous party of heroes through many challenges. ",
       image: "/images/the_last_flame_header.jpg",
       link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
     {
       title: "A Gentlemen's Dispute",
       genre: "Multiplayer Action Party Brawler",
-      languages: "EN → DE",
       description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
+        "A fancy party brawler for proper scoundrels! Sling traps, swing bats, and fire cannons in destructible arenas as you scramble for absurd perks and weapons. Outlast your so-called peers by any gentlemanly means necessary - all in the name of good sport, of course. ",
       image: "/images/gentlemens_dispute.jpg",
       link: "https://store.steampowered.com/app/2820700/A_Gentlemens_Dispute/",
     },
     {
       title: "Forage Wizard",
-      genre: "Incremental Crafting Automation-Builder",
+      genre: "Incremental Crafting Automation Builder",
       description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
+        "Click, craft and collect your way to alchemical mastery. Progress through a branching skill tree and explore the forbidden woods. Collect resources and build machines of magic. Slay monsters, farm crops and automate your production to become the all-powerful Forage Wizard! ",
       image: "/images/forage_wizard.jpg",
       link: "https://store.steampowered.com/app/3868320/Forage_Wizard/",
     },
     {
       title: "Sandcastle",
-      genre: "Incremental Crafting Automation-Builder",
+      genre: "Cozy Relaxing Sandbox Builder",
       description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
-      image: "/images/forage_wizard.jpg",
+        "On a sun-warmed tropical shore, quietly craft a mighty sandcastle. Carve moats, raise towers and walls, then embellish with driftwood, pebbles, shells and seaweed. Gentle tides, soft surf and a calming color palette turn every build into a peaceful, relaxing moment. ",
+      image: "/images/Sandcastle.jpg",
       link: "hhttps://store.steampowered.com/app/3216520/Sandcastle/",
     },
     {
-      title: "Cubetory",
-      genre: "Roguelike Fantasy Autobattler",
+      title: "Starvester",
+      genre: "Incremental Space Automation ",
       description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
-      image: "/images/the_last_flame_header.jpg",
+        "A short incremental game about expanding a star-system wide factory to build giant megastructures in space. Deploy swarms of drones, mine resources, unlock upgrades and harvest the power of the stars! ",
+      image: "/images/starvester.jpg",
+      link: "https://store.steampowered.com/app/4194800/Starvester/",
+    },
+    {
+      title: "Cubetory",
+      genre: "Factory Automation Builder",
+      description:
+        "Build a huge factory on a tiny island! Resources are scarce and unique - tweak and optimize everything for peak efficiency. Start with simple painted cubes, unlock tons of upgrades, and scale up to complex production chains. No enemies, just satisfying spaghetti. ",
+      image: "/images/cubetory.jpg",
       link: "https://store.steampowered.com/app/3027060/Cubetory/",
     },
     {
       title: "Reclaim The Sea",
       genre: "Roguelike Strategy Adventure",
       description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
-      image: "/images/the_last_flame_header.jpg",
+        "Reclaim the Sea is a roguelike strategy game set in a pirate fantasy world. Fight your way through randomly generated maps and text events. Command your pirate crew, upgrade your ship and make tactical decisions to beat the boss and save the world… or die trying. ",
+      image: "/images/reclaim_the_sea.jpg",
       link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
     {
       title: "The Last Flame",
       genre: "Roguelike Fantasy Autobattler",
-      description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
+      description: "",
       image: "/images/the_last_flame_header.jpg",
       link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
     {
-      title: "The Last Flame",
-      genre: "Roguelike Fantasy Autobattler",
+      title: "Interstellar Espionage Inc.",
+      genre: "Economy Strategy Simulation",
       description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
-      image: "/images/the_last_flame_header.jpg",
-      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
+        "Manage an interstellar spy business in this strategy game with lunchbreak-length runs. Release your inner math-nerd to manipulate statistical odds for stealing data and technology. Build a galaxy-wide espionage network, partner with megacorporations or sell their secrets to bankrupt them. Profit! ",
+      image: "/images/Interstellar.jpg",
+      link: "https://store.steampowered.com/app/3563480/Interstellar_Espionage_Inc/",
     },
     {
-      title: "The Last Flame",
-      genre: "Roguelike Fantasy Autobattler",
+      title: "King’s Well",
+      genre: "Roguelite Poker Deckbuilder",
       description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
-      image: "/images/the_last_flame_header.jpg",
-      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
+        "Feed rusty steampunk machines with cards to trigger powerful attacks and combos in this roguelite poker deckbuilder. Demo available now. ",
+      image: "/images/kingswell.jpg",
+      link: "https://store.steampowered.com/app/4332200/Kings_Well/",
+    },
+    {
+      title: "Super Blood Hockey: Rogue Manager",
+      genre: "Roguelike Deckbuilding Autobattler",
+      description:
+        "A sports game where you don't control the players, instead play as a shady coach and use your deck of dirty tricks to become season champion. A unique hybrid of roguelike deckbuilder, auto-battler, and high action arcade hockey. ",
+      image: "/images/blood_hockey_rogue.jpg",
+      link: "https://store.steampowered.com/app/3911400/Super_Blood_Hockey_Rogue_Manager/",
+    },
+    {
+      title: "",
+      genre: "",
+      description: "",
+      image: "",
+      link: "",
+    },
+    {
+      title: "",
+      genre: "",
+      description: "",
+      image: "",
+      link: "",
+    },
+    {
+      title: "",
+      genre: "",
+      description: "",
+      image: "",
+      link: "",
     },
   ];
 
