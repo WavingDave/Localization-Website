@@ -14,8 +14,11 @@ Unlock New Markets.
 
 export default function GamingLocalizationPortfolio() {
   const glowRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const [reviewIndex, setReviewIndex] = useState(0);
   const [openProjects, setOpenProjects] = useState<number[]>([]);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const lastScrollTopRef = useRef(0);
 
   const toggleProject = (index: number) => {
     setOpenProjects((prev) =>
@@ -63,6 +66,62 @@ export default function GamingLocalizationPortfolio() {
     };
   }, []);
 
+  useEffect(() => {
+    const orbs = document.querySelectorAll(".bg-orb");
+
+    const updateOrbPosition = (orb: Element) => {
+      const randomLeft = Math.random() * 100;
+      const randomTop = Math.random() * 100;
+
+      (orb as HTMLElement).style.left = `${randomLeft}%`;
+      (orb as HTMLElement).style.top = `${randomTop}%`;
+    };
+
+    const listeners: (() => void)[] = [];
+
+    orbs.forEach((orb) => {
+      // Startposition
+      updateOrbPosition(orb);
+
+      // Neue Position erst nach einem kompletten Fade-Zyklus
+      const handleIteration = () => {
+        updateOrbPosition(orb);
+      };
+
+      orb.addEventListener("animationiteration", handleIteration);
+
+      listeners.push(() => {
+        orb.removeEventListener("animationiteration", handleIteration);
+      });
+    });
+
+    return () => {
+      listeners.forEach((cleanup) => cleanup());
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollTop = window.scrollY;
+
+      if (currentScrollTop > lastScrollTopRef.current) {
+        // Scrolling down
+        setIsHeaderVisible(false);
+      } else {
+        // Scrolling up
+        setIsHeaderVisible(true);
+      }
+
+      lastScrollTopRef.current = currentScrollTop;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const projects = [
     {
       title: "The Last Flame",
@@ -71,6 +130,7 @@ export default function GamingLocalizationPortfolio() {
       description:
         "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
       image: "/images/the_last_flame_header.jpg",
+      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
     {
       title: "A Gentlemen's Dispute",
@@ -79,14 +139,39 @@ export default function GamingLocalizationPortfolio() {
       description:
         "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
       image: "/images/gentlemens_dispute.jpg",
+      link: "https://store.steampowered.com/app/2820700/A_Gentlemens_Dispute/",
     },
     {
       title: "Forage Wizard",
       genre: "Incremental Crafting Automation-Builder",
-      languages: "EN → DE",
       description:
         "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
       image: "/images/forage_wizard.jpg",
+      link: "https://store.steampowered.com/app/3868320/Forage_Wizard/",
+    },
+    {
+      title: "Sandcastle",
+      genre: "Incremental Crafting Automation-Builder",
+      description:
+        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
+      image: "/images/forage_wizard.jpg",
+      link: "hhttps://store.steampowered.com/app/3216520/Sandcastle/",
+    },
+    {
+      title: "Cubetory",
+      genre: "Roguelike Fantasy Autobattler",
+      description:
+        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
+      image: "/images/the_last_flame_header.jpg",
+      link: "https://store.steampowered.com/app/3027060/Cubetory/",
+    },
+    {
+      title: "Reclaim The Sea",
+      genre: "Roguelike Strategy Adventure",
+      description:
+        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
+      image: "/images/the_last_flame_header.jpg",
+      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
     {
       title: "The Last Flame",
@@ -94,6 +179,7 @@ export default function GamingLocalizationPortfolio() {
       description:
         "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
       image: "/images/the_last_flame_header.jpg",
+      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
     {
       title: "The Last Flame",
@@ -101,6 +187,7 @@ export default function GamingLocalizationPortfolio() {
       description:
         "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
       image: "/images/the_last_flame_header.jpg",
+      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
     {
       title: "The Last Flame",
@@ -108,38 +195,27 @@ export default function GamingLocalizationPortfolio() {
       description:
         "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
       image: "/images/the_last_flame_header.jpg",
-    },
-    {
-      title: "The Last Flame",
-      genre: "Roguelike Fantasy Autobattler",
-      description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
-      image: "/images/the_last_flame_header.jpg",
-    },
-    {
-      title: "The Last Flame",
-      genre: "Roguelike Fantasy Autobattler",
-      description:
-        "Strategic localization with heavy focus on syngeries and accuracy. Everything had to be on point to assure the consistency of the synergies. It was quite challenging, regarding the html tags from the source text! It was more than fun to work on this beautiful gem and with the dev Hotloop.",
-      image: "/images/the_last_flame_header.jpg",
+      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
   ];
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden">
-      <div className="bg-orb orb1" />
-      <div className="bg-orb orb2" />
-      <div className="bg-orb orb3" />
-      <div className="bg-orb orb4" />
-      <div className="bg-orb orb5" />
-      <div className="bg-orb orb6" />
-      <div className="bg-orb orb7" />
-      <div className="bg-orb orb8" />
+    <div className="min-h-screen text-white">
+      <div className="bg-orb orb1 ease-in-out transition" />
+      <div className="bg-orb orb2 ease-in-out transition" />
+      <div className="bg-orb orb3 ease-in-out transition" />
+      <div className="bg-orb orb4 ease-in-out transition" />
+
       {/* Cursor Glow */}
       <div ref={glowRef} className="cursor-glow" />
 
       {/* Navbar */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-black/40">
+      <header
+        ref={headerRef}
+        className={`sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-black/40 transition-transform duration-300 ${
+          isHeaderVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <h1 className="text-xl md:text-2xl font-bold tracking-wide">
             <span className="text-green-400">Locsmith </span>
@@ -219,7 +295,7 @@ export default function GamingLocalizationPortfolio() {
                 </div>
 
                 <div className="bg-black/40 border border-white/10 rounded-2xl p-6">
-                  <div className="text-4xl font-black text-green-300">+</div>
+                  <div className="text-4xl font-black text-green-300">35+</div>
                   <div className="text-white/60 mt-2">Projects Completed</div>
                 </div>
 
@@ -514,7 +590,7 @@ export default function GamingLocalizationPortfolio() {
 
       {/* Footer */}
       <footer className="border-t border-white/10 py-10 px-6 text-center text-white/40 text-sm">
-        © 2026 Locksmith Localization. All rights reserved.
+        © 2026 Locsmith Localization. All rights reserved.
       </footer>
     </div>
   );
