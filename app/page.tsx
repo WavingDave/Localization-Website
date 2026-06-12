@@ -1,16 +1,7 @@
 "use client";
 import "./page.css";
 import { useEffect, useRef, useState } from "react";
-
-/* Slogans:
-Unlocking Global Markets.
-The Key to Global Communication.
-Precision Localization, Worldwide.
-Your Trusted Key to Every Market.
-Forging Connections Across Languages.
-The Master Key to Localization.
-Unlock New Markets.
-*/
+import { motion } from "framer-motion";
 
 export default function GamingLocalizationPortfolio() {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -32,21 +23,85 @@ export default function GamingLocalizationPortfolio() {
       role: "Solo dev",
       quote:
         "Dave delivered an exceptional translation of The Last Flame from English to German. The game's complexity demands a deep understanding of nuance and carefully chosen keywords, and Dave approached every aspect of the work with precision! His translation was consistent and high-quality throughout, and even as the game evolved through multiple updates, he always delivered on time. On top of his translator's skill, his communication was clear and proactive all along the project. I highly recommend Dave! Here! let me know if you would like me to change something",
-      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/#app_reviews_hash",
     },
     {
-      company: "Publisher Placeholder B",
-      role: "Localization Lead",
+      company: "VSDeptor- Forage Wizard",
+      role: "Lost Maxim Games",
       quote:
-        "A professional partner who understood our narrative and preserved the soul of the game in every line.",
+        "Dave translated Forage Wizard into German. 15% of our players were German in the first few weeks of release. That's 5,000 Germans! We never had a single complaint about the localization from any of those German players, only compliments. Dave was professional kind and helpful. He also tested our game and discovered multiple issues that we had missed ourselves. I couldn't recommend him more. Just DM me for a reference, @vsdebtor on discord (Lost Maxim Games).",
     },
     {
-      company: "Developer Placeholder C",
-      role: "Narrative Designer",
+      company: "Bitstream - Cubetory",
+      role: "Solo dev",
       quote:
-        "Excellent communication and quality. The adapted text kept the original character voice without sounding translated.",
+        "Dave was fantastic to work with during my latest commercial game, Cubetory. Being a technical factory game, having the concepts translated accurately was critical for its success. Dave was very thorough in making sure that he understood every concept before translating them, asking the right questions to make sure everything was good. Translations were delivered on time, and regular updates kept me in the loop. Overall a 10/10 translation experience.",
+    },
+    {
+      company: "Touko - Intersteller Esionage Inc.",
+      role: "Fancy Raven Games",
+      quote:
+        "Working with Dave was super easy and he really cares about the quality of his service. Dave got the context for my game quickly and even handled the complex sci-fi terminology exceedingly well.  His communication was professional, he delivered ahead of schedule, and according to, the results are excellent. Without hesitation, I recommend him.",
+    },
+    {
+      company: "Lucas - One Last Job, Another Round, Null State",
+      role: "Triple Eye Games",
+      quote: "",
     },
   ];
+
+  const fadeLeft = {
+    hidden: {
+      opacity: 0,
+      x: -100,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  };
+
+  const fadeRight = {
+    hidden: {
+      opacity: 0,
+      x: 100,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  };
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 80,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
 
   useEffect(() => {
     if (!glowRef.current) return;
@@ -141,7 +196,7 @@ export default function GamingLocalizationPortfolio() {
     },
     {
       title: "Forage Wizard",
-      genre: "Incremental Crafting Automation Builder",
+      genre: "Crafting Automation Builder",
       description:
         "Click, craft and collect your way to alchemical mastery. Progress through a branching skill tree and explore the forbidden woods. Collect resources and build machines of magic. Slay monsters, farm crops and automate your production to become the all-powerful Forage Wizard! ",
       image: "/images/forage_wizard.jpg",
@@ -180,11 +235,12 @@ export default function GamingLocalizationPortfolio() {
       link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
     {
-      title: "The Last Flame",
-      genre: "Roguelike Fantasy Autobattler",
-      description: "",
-      image: "/images/the_last_flame_header.jpg",
-      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
+      title: "Free as Birds : UAZO",
+      genre: "Open World Survival Craft",
+      description:
+        "Soar as a curious bird on a mysterious island filled with secrets, ancient ruins, and hidden wonders. Explore with your friends, gather resources, build, survive and uncover the island’s story in this serene adventure. ",
+      image: "/images/free_as_bird.jpg",
+      link: "https://store.steampowered.com/app/3182050/Free_as_birds__UAZO/",
     },
     {
       title: "Interstellar Espionage Inc.",
@@ -211,34 +267,93 @@ export default function GamingLocalizationPortfolio() {
       link: "https://store.steampowered.com/app/3911400/Super_Blood_Hockey_Rogue_Manager/",
     },
     {
-      title: "",
-      genre: "",
-      description: "",
-      image: "",
-      link: "",
+      title: "TDiabolocracy",
+      genre: "Turn Based Tactical RPG",
+      description:
+        "The bureaucracy of Hell runs on violence in this roguelite turn-based tactics game. Build your team of misfits, battle other Sins for souls of the damned, survive boring meetings, and choose your SINergies wisely. Will you be able to keep Hell from eating itself alive while the Boss is on vacation? ",
+      image: "/images/diabolocracy.jpg",
+      link: "https://store.steampowered.com/app/4143850/Diabolocracy/",
     },
     {
-      title: "",
-      genre: "",
-      description: "",
-      image: "",
-      link: "",
+      title: "Timebound",
+      genre: "Mystery Exploration Time Puzzle",
+      description:
+        "An exploration puzzle adventure in mystical ruins. Explore a world filled with puzzles, uncover the magic left behind, discover what's hidden in plain sight, learn the rules and break them. ",
+      image: "/images/timebound.jpg",
+      link: "https://store.steampowered.com/app/3220700/Timebound/",
     },
     {
-      title: "",
-      genre: "",
-      description: "",
-      image: "",
-      link: "",
+      title: "Corner Quest",
+      genre: "Idler Incremental Auto battler",
+      description:
+        "An idle auto-battler that sits in the corner of your screen while you do other things. ",
+      image: "/images/cornerquest.jpg",
+      link: "https://store.steampowered.com/app/4254260/Corner_Quest/",
     },
+    {
+      title: "Sushi On Wheels",
+      genre: "Cooking Management Simulation",
+      description:
+        "Run your dream sushi truck in Sushi On Wheels! Prep ingredients, customize your truck, and serve handmade sushi to hungry locals. Upgrade your gear, discover new recipes, and build your reputation in this cozy management game set in a charming Japanese town. ",
+      image: "/images/sushi.jpg",
+      link: "https://store.steampowered.com/app/3749760/Sushi_On_Wheels/",
+    },
+    {
+      title: "Danger World",
+      genre: "Choose Your Own Adventure RPG",
+      description:
+        "Explore an epic fantasy world alongside three heroes on a quest to recover a stolen jewel. Guide your party to victory in turn-based battles, make decisions that will determine the events of the story, and uncover the ancient secrets of Eldora as you race to catch the mechanical thief. ",
+      image: "/images/danger_world.jpg",
+      link: "https://store.steampowered.com/app/3229420/Danger_World/",
+    },
+    {
+      title: "PRITTO PRISONER",
+      genre: "Multiplayer Party Game",
+      description:
+        "You're the world's softest criminals in an island prison with mandatory nap rooms. Your escape plan? Eat bread, poop until the gates open, and pee on the robots chasing you. Break out with three friends, or play the robots tucking them back in. A wacky 4v2 prison break in quick 10-minute matches. ",
+      image: "/images/pritto.jpg",
+      link: "https://store.steampowered.com/app/3036800/PRITTO_PRISONER/",
+    },
+    {
+      title: "Marshals of War: Orcblood",
+      genre: "Strategy Fantasy RTS",
+      description:
+        "Command powerful heroes and epic armies in Marshals of War: Orcblood, a stylized fantasy action Real Time Strategy game. Cast spells, defeat bosses, loot treasure, build defenses, and lead men, dwarves and elves to victory, in solo, or co-op against the orcs and their masters. ",
+      image: "/images/marshals.jpg",
+      link: "https://store.steampowered.com/app/3684360/Marshals_of_War_Orcblood/",
+    },
+    /*{
+      title: "Another Round",
+      genre: "Roguelike Deckbuilder",
+      description:
+        "Welcome to The Old Fashioned, the local spot for off-the-books biz. We’re neutral ground for folks from all walks - pink mohawks, black trenchcoats, mirrorshades, even corpo suits. If you've got money & intel to share, you've got a seat here. Can I get you another round? ",
+      image: "/images/anotherround.jpg",
+      link: "https://store.steampowered.com/app/2798690/Another_Round/",
+    },*/
+    /*{
+      title: "Null State",
+      genre: "Turn Based Hacking Game",
+      description:
+        "You are a hacker - a rarity in a world nearly destroyed by a cascading global systems failure. Prowl through networks node by node, disabling their security in risky turn-based combat, as you explore branching storylines to uncover what caused Obsidian Wednesday.",
+      image: "/images/nullstate.jpg",
+      link: "https://store.steampowered.com/app/2166340/Null_State/#app_reviews_hash",
+    },*/
+    /*{
+      title: "One Last Job",
+      genre: "Turn Based CRPG",
+      description:
+        "Being a world-class fixer is about who you know: clients need discreet solutions, and crews want to see retirement. Then there's you, stuck in the middle with your rep on the line. Yeah, you're quitting the biz -- after one last job.",
+      image: "/images/onelastjob.jpg",
+      link: "https://store.steampowered.com/app/2798700/One_Last_Job/",
+    },*/
   ];
 
   return (
     <div className="min-h-screen text-white">
-      <div className="bg-orb orb1 ease-in-out transition" />
-      <div className="bg-orb orb2 ease-in-out transition" />
-      <div className="bg-orb orb3 ease-in-out transition" />
-      <div className="bg-orb orb4 ease-in-out transition" />
+      <div className="bg-orb orb1" />
+      <div className="bg-orb orb2" />
+      <div className="bg-orb orb3" />
+      <div className="bg-orb orb4" />
 
       {/* Cursor Glow */}
       <div ref={glowRef} className="cursor-glow" />
@@ -295,8 +410,10 @@ export default function GamingLocalizationPortfolio() {
       >
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative z-10">
-            <h2 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-              <span className="hero-gradient">Forging Interactive Words</span>
+            <h2 className="md:text-6xl font-black leading-tight mb-6">
+              <span className="hero-gradient">
+                Forged by Hand. Built for Players.
+              </span>
             </h2>
 
             <p className="text-lg text-white/70 max-w-xl leading-relaxed mb-10">
@@ -347,6 +464,7 @@ export default function GamingLocalizationPortfolio() {
                       "Turn based strategy Games",
                       "Automation Games",
                       "Story driven Games",
+                      "Autobattler",
                       "And more...",
                     ].map((item) => (
                       <span
@@ -364,55 +482,91 @@ export default function GamingLocalizationPortfolio() {
         </div>
       </section>
       <div className="site-divider"></div>
-      {/* About */}
-      <section className="max-w-6xl mx-auto py-24">
-        <div className="grid lg:grid-cols-2 items-center">
-          <div>
-            <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
-              About Me
-            </div>
+      {/* About heading*/}
+      <section className="max-w-6xl mx-auto space-y-12">
+        <div className=" uppercase tracking-[0.3em] text-sm mb-4">
+          <p className="text-green-400 pb-4">About Me</p>
+          <h3 className="text-2xl font-bold mb-8">
+            What started as a passion project <br />
+            turned into a growing localization business.
+          </h3>
+        </div>
 
-            <h3 className="text-4xl md:text-3xl font-bold mb-8">
-              What started as a passion project turned into a growing
-              localization business.
+        <div>
+          {/* About content */}
+          {/* Block 1*/}
+          <div className="text-white/70 text-lg leading-relaxed space-y-6">
+            <h3 className="text-green-400 text-xl pb-4">
+              The Legend of Locsmith Localization
             </h3>
-          </div>
+            <motion.div
+              className="grid lg:grid-cols-2 gap-16 items-center"
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <p>
+                It all began as a daring endeavor, a one-time project for a game
+                I held dear. With pen and heart, I translated the words of its
+                creator, delving deep into their crafted world. Each line was
+                carefully forged and honed, carrying not just meaning, but the
+                very soul of the original. What began as a fan project grew into
+                a calling: I founded Locsmith Localization, a forge where video
+                games are masterfully translated and adapted for German-speaking
+                gamers. My craft goes beyond mere words – I preserve emotional
+                impact, gameplay clarity, and full immersion, so that every word
+                and every story may reveal its true power.
+              </p>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/sushi.jpg" alt="About Me" />
+            </motion.div>
 
-          <div className="text-white/70 text-lg leading-relaxed space-y-6">
-            <p>
-              It once started as a one time project for a game i love with
-              fan-translation. I really got into translating and handcrafting
-              the words from the dev and made a business of what i love. I
-              specialize in translating and adapting video games for
-              German-speaking audiences. My focus is not only linguistic
-              accuracy, but preserving emotional impact, gameplay clarity, and
-              immersion.
-            </p>
-
-            <p>
-              From indie titles to large-scale RPGs, I help developers create
-              authentic, handcreafted experiences that feel native to players. I
-              love what i do and stricly work without AI to keep a high quality
-              all the time.
-            </p>
-          </div>
-          <div className="text-white/70 text-lg leading-relaxed space-y-6">
-            <p>
-              It once started as a one time project for a game i love with
-              fan-translation. I really got into translating and handcrafting
-              the words from the dev and made a business of what i love. I
-              specialize in translating and adapting video games for
-              German-speaking audiences. My focus is not only linguistic
-              accuracy, but preserving emotional impact, gameplay clarity, and
-              immersion.
-            </p>
-
-            <p>
-              From indie titles to large-scale RPGs, I help developers create
-              authentic, handcreafted experiences that feel native to players. I
-              love what i do and stricly work without AI to keep a high quality
-              all the time.
-            </p>
+            {/* Block 2*/}
+            <motion.div
+              className="grid lg:grid-cols-2 gap-16 items-center"
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/sushi.jpg" alt="About Me" />
+              <p>
+                From humble indie titles to sprawling RPGs, I aid developers in
+                crafting authentic, handcrafted experiences that feel truly
+                native to their players. Every word is forged by my own hand. I
+                take great joy in my work as a wordsmith and refuse to rely on
+                AI, ensuring that the highest quality is maintained in every
+                line.
+                <br />
+                <br />
+                Each project is a new quest, where every sentence and phrase is
+                carefully tempered to preserve the spirit of the original. My
+                goal is to let players feel the story as if it were born in
+                their own language, fully immersive and true.
+              </p>
+            </motion.div>
+            {/* Block 3*/}
+            <motion.div
+              className="grid lg:grid-cols-2 gap-16 items-center"
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <p>
+                I still remember the first game that ever captured my heart: The
+                Legend of Dragoon on the PSX back in 2001. I was only 7, perched
+                at my older sister’s side, eyes wide as I watched her every
+                move, gasping at every perilous creature. From that moment, my
+                journey began. With countless RPGs from the old days, my love
+                for gaming grew, and now, at 31, I finally forge a life around
+                what I truly love—crafting adventures for others to experience.
+              </p>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/sushi.jpg" alt="About Me" />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -428,11 +582,18 @@ export default function GamingLocalizationPortfolio() {
             My Portfolio
           </h3>
         </div>
-        <div className="grid md:grid-cols-3 gap-12">
+        <motion.div
+          className="grid md:grid-cols-3 gap-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={project.title}
-              className={`project-card ${
+              variants={cardVariants}
+              className={`project-card flex flex-col ${
                 openProjects.includes(index) ? "open" : ""
               }`}
               onClick={() => toggleProject(index)}
@@ -442,7 +603,7 @@ export default function GamingLocalizationPortfolio() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="object-cover"
                 />
               </div>
 
@@ -467,19 +628,21 @@ export default function GamingLocalizationPortfolio() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
       <div className="site-divider"></div>
       {/* Reviews */}
       <section id="reviews" className="max-w-7xl mx-auto px-6 py-24 relative">
         <div className="mb-14">
           <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
-            What it&apos;s like working with me
+            Reviews
           </div>
 
-          <h3 className="text-4xl md:text-5xl font-bold">Words from Clients</h3>
+          <h3 className="text-4xl md:text-5xl font-bold">
+            What my clients say
+          </h3>
         </div>
 
         <div className="review-panel">

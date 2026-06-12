@@ -73,7 +73,7 @@
 .project-card:hover {
   border-color: rgba(52, 211, 153, 0.35);
   transform: translateY(-4px);
-  scale: 1.02;
+  scale: 1.05;
 }
 
 .project-image {
@@ -96,6 +96,8 @@
 
 .project-content.open {
   max-height: 300px;
+  min-height: 250px;
+
   opacity: 1;
 }
 
