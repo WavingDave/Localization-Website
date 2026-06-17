@@ -97,7 +97,7 @@ export default function GamingLocalizationPortfolio() {
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.7,
+        duration: 0.2,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -267,7 +267,7 @@ export default function GamingLocalizationPortfolio() {
       link: "https://store.steampowered.com/app/3911400/Super_Blood_Hockey_Rogue_Manager/",
     },
     {
-      title: "TDiabolocracy",
+      title: "Diabolocracy",
       genre: "Turn Based Tactical RPG",
       description:
         "The bureaucracy of Hell runs on violence in this roguelite turn-based tactics game. Build your team of misfits, battle other Sins for souls of the damned, survive boring meetings, and choose your SINergies wisely. Will you be able to keep Hell from eating itself alive while the Boss is on vacation? ",
@@ -366,6 +366,7 @@ export default function GamingLocalizationPortfolio() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <img src="/images/locsmith_logo.png" className="h-20 w-20" />
           <h1 className="text-xl md:text-2xl font-bold tracking-wide">
             <span className="text-green-400">Locsmith </span>
             <span>Localization</span>
@@ -593,6 +594,11 @@ export default function GamingLocalizationPortfolio() {
             <motion.div
               key={project.title}
               variants={cardVariants}
+              whileHover={{
+                y: -1,
+                scale: 1.05,
+              }}
+              transition={{ duration: 0.1 }}
               className={`project-card flex flex-col ${
                 openProjects.includes(index) ? "open" : ""
               }`}
@@ -614,10 +620,11 @@ export default function GamingLocalizationPortfolio() {
                   </span>
                 </div>
 
-                <h3 className="hero-gradient text-2xl font-bold">
+                <h3 className="hero-gradient text-2xl font-bold  min-h-[4rem]">
                   {project.title}
+                  
                 </h3>
-
+                <div className="site-divider divider--compact" />
                 <div
                   className={`project-content ${
                     openProjects.includes(index) ? "open" : ""

@@ -18,6 +18,7 @@ html {
 body {
   min-height: 100%;
   margin: 0;
+  user-select: none;
   background: transparent;
   position: relative;
   --mouse-x: 50%;
