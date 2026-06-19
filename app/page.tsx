@@ -651,15 +651,23 @@ export default function GamingLocalizationPortfolio() {
                   <p className="text-white/65 leading-relaxed mt-4">
                     {project.description}
                   </p>
-                <button
-                  className="steam-link-btn"
-                  onClick={(e) => {project.link
-                    e.stopPropagation();
-                    window.open(project.link, "_blank");
-                  }}
-                >
-                  Steam
-                </button>
+                  <button
+                    type="button"
+                    className="steam-link-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (project?.link) window.open(project.link, "_blank", "noopener,noreferrer");
+                    }}
+                  >
+                    <img
+                      src="/images/steam.svg"
+                      alt=""
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                      
+                    />
+                    
+                  </button>
                 </div>
               </div>
             </motion.div>
