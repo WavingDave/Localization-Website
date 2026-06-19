@@ -45,14 +45,14 @@ export default function GamingLocalizationPortfolio() {
     {
       company: "Lucas - One Last Job, Another Round, Null State",
       role: "Triple Eye Games",
-      quote: "",
+      quote: "Dave and I worked together on translations for several games. He was always quick and responsive to our last-minute requests and pings, plus he worked hard to make our games' silly, punny cultural references make sense to a German audience. He is a very competent contributor with a good fingerspitzengefühl for the idiosyncrasies of the German language! 😄",
     },
   ];
 
   const fadeLeft = {
     hidden: {
       opacity: 0,
-      x: -100,
+      x: -100,  
     },
     visible: {
       opacity: 1,
@@ -258,6 +258,14 @@ export default function GamingLocalizationPortfolio() {
       image: "/images/kingswell.jpg",
       link: "https://store.steampowered.com/app/4332200/Kings_Well/",
     },
+        {
+      title: "General Practice",
+      genre: "Multiplayer Online-Koop Party Game",
+      description:
+        "Diagnose and (mis)treat patients to meet tight deadlines and high expectations in this wacky medical co-op adventure. Wear many hats, master numerous tools, multitask, manage the chaos: all while trying to do no harm! Play solo or enjoy the tomfoolery with up to 4 players, locally or online.",
+      image: "/images/generalPractice.jpg",
+      link: "https://store.steampowered.com/app/3833730/General_Practice/",
+    },
     {
       title: "Super Blood Hockey: Rogue Manager",
       genre: "Roguelike Deckbuilding Autobattler",
@@ -265,14 +273,6 @@ export default function GamingLocalizationPortfolio() {
         "A sports game where you don't control the players, instead play as a shady coach and use your deck of dirty tricks to become season champion. A unique hybrid of roguelike deckbuilder, auto-battler, and high action arcade hockey. ",
       image: "/images/blood_hockey_rogue.jpg",
       link: "https://store.steampowered.com/app/3911400/Super_Blood_Hockey_Rogue_Manager/",
-    },
-    {
-      title: "Diabolocracy",
-      genre: "Turn Based Tactical RPG",
-      description:
-        "The bureaucracy of Hell runs on violence in this roguelite turn-based tactics game. Build your team of misfits, battle other Sins for souls of the damned, survive boring meetings, and choose your SINergies wisely. Will you be able to keep Hell from eating itself alive while the Boss is on vacation? ",
-      image: "/images/diabolocracy.jpg",
-      link: "https://store.steampowered.com/app/4143850/Diabolocracy/",
     },
     {
       title: "Timebound",
@@ -366,14 +366,26 @@ export default function GamingLocalizationPortfolio() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <img src="/images/locsmith_logo.png" className="h-20 w-20" />
-          <h1 className="text-xl md:text-2xl font-bold tracking-wide">
-            <span className="text-green-400">Locsmith </span>
-            <span>Localization</span>
-            <p className="text-xs">by David Becker</p>
-          </h1>
+          <div className="flex items-center gap-4">
+            <img
+              src="/images/transparent-logo.svg"
+              alt="Locsmith Logo"
+              className="h-28 w-28 color-white"
+            />
 
-          <div className="hero-badge">EN → DE Game Localization</div>
+            <div>
+              <h1 className="text-xl md:text-2xl font-bold tracking-wide leading-none">
+                <span className="text-green-400">Locsmith </span>
+                <span>Localization</span>
+              </h1>
+
+              <p className="text-xs text-white/60 mt-1">
+                by David Becker
+              </p>
+            </div>
+          </div>
+
+
 
           <nav className="hidden md:flex gap-8 text-sm uppercase tracking-wider text-white/70">
             <a
@@ -438,7 +450,7 @@ export default function GamingLocalizationPortfolio() {
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl rounded-3xl" />
 
             <div className="relative backdrop-blur-2xl bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-3 gap-6">
                 <div className="bg-black/40 border border-white/10 rounded-2xl p-6">
                   <div className="text-4xl font-black text-green-300">
                     1.5M+
@@ -450,21 +462,27 @@ export default function GamingLocalizationPortfolio() {
                   <div className="text-4xl font-black text-green-300">35+</div>
                   <div className="text-white/60 mt-2">Projects Completed</div>
                 </div>
+                <div className="bg-black/40 border border-white/10 rounded-2xl p-6">
+                  <div className="text-4xl font-black text-green-300">
+                    80+
+                  </div>
+                  <div className="text-white/60 mt-2">Hours of LQA</div>
+                </div>
 
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-6 col-span-2">
+                <div className="bg-black/40 border border-white/10 rounded-2xl p-6 col-span-3">
                   <div className="text-2xl font-bold mb-3 text-green-300">
                     Specializations
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      "AA and Indie Games",
+                      "From AAA to Indie Games",
                       "Roguelites & Roguelikes",
-                      "RPGs",
+                      "RPGs & JRPGs",
                       "Incremental Games",
                       "Strategy Games",
-                      "Turn based strategy Games",
+                      "Turn Based Strategy Games",
                       "Automation Games",
-                      "Story driven Games",
+                      "Story Driven Games",
                       "Autobattler",
                       "And more...",
                     ].map((item) => (
@@ -566,7 +584,7 @@ export default function GamingLocalizationPortfolio() {
                 what I truly love—crafting adventures for others to experience.
               </p>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/sushi.jpg" alt="About Me" />
+              <img src="/images/sushi.jpg" alt="About Me" className="project-image object-cover"/>
             </motion.div>
           </div>
         </div>
@@ -633,6 +651,15 @@ export default function GamingLocalizationPortfolio() {
                   <p className="text-white/65 leading-relaxed mt-4">
                     {project.description}
                   </p>
+                <button
+                  className="steam-link-btn"
+                  onClick={(e) => {project.link
+                    e.stopPropagation();
+                    window.open(project.link, "_blank");
+                  }}
+                >
+                  Steam
+                </button>
                 </div>
               </div>
             </motion.div>
@@ -713,8 +740,10 @@ export default function GamingLocalizationPortfolio() {
           </h3>
 
           <p className="text-white/65 text-lg max-w-2xl mx-auto">
-            Looking for high-quality game localization? Send your project
-            details below.
+            Looking for high-quality and affordable game localization?
+          </p>
+          <p className="text-white/65 text-lg max-w-2xl mx-auto">
+            Let me know your project details below!
           </p>
         </div>
 
