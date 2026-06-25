@@ -22,13 +22,11 @@ export async function POST(req: Request) {
       subject: `Neue Anfrage von ${name}`,
       html: `
         <h2>Neue Projektanfrage</h2>
-
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>E-Mail:</strong> ${email}</p>
         <p><strong>Budget:</strong> ${budget}</p>
         <p><strong>Deadline:</strong> ${deadline}</p>
         <p><strong>Wortanzahl:</strong> ${wordCount}</p>
-
         <h3>Projektbeschreibung</h3>
         <p>${message}</p>
       `,
@@ -36,7 +34,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Fehler beim Senden:", error);
+    console.error(error);
 
     return NextResponse.json({ error: "Fehler beim Senden" }, { status: 500 });
   }
