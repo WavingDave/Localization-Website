@@ -11,6 +11,37 @@ export default function GamingLocalizationPortfolio() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const lastScrollTopRef = useRef(0);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      budget: formData.get("budget"),
+      deadline: formData.get("deadline"),
+      wordCount: formData.get("wordCount"),
+      message: formData.get("message"),
+    };
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      alert("Message sent successfully!");
+      form.reset(); // statt e.currentTarget.reset()
+    } else {
+      alert("Something went wrong.");
+    }
+  };
+
   const toggleProject = (index: number) => {
     setOpenProjects((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
@@ -45,14 +76,15 @@ export default function GamingLocalizationPortfolio() {
     {
       company: "Lucas - One Last Job, Another Round, Null State",
       role: "Triple Eye Games",
-      quote: "Dave and I worked together on translations for several games. He was always quick and responsive to our last-minute requests and pings, plus he worked hard to make our games' silly, punny cultural references make sense to a German audience. He is a very competent contributor with a good fingerspitzengefühl for the idiosyncrasies of the German language! 😄",
+      quote:
+        "Dave and I worked together on translations for several games. He was always quick and responsive to our last-minute requests and pings, plus he worked hard to make our games' silly, punny cultural references make sense to a German audience. He is a very competent contributor with a good fingerspitzengefühl for the idiosyncrasies of the German language! 😄",
     },
   ];
 
   const fadeLeft = {
     hidden: {
       opacity: 0,
-      x: -100,  
+      x: -100,
     },
     visible: {
       opacity: 1,
@@ -98,7 +130,7 @@ export default function GamingLocalizationPortfolio() {
       scale: 1,
       transition: {
         duration: 0.2,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.43, 0.13, 0.23, 0.96] as const,
       },
     },
   };
@@ -258,7 +290,7 @@ export default function GamingLocalizationPortfolio() {
       image: "/images/kingswell.jpg",
       link: "https://store.steampowered.com/app/4332200/Kings_Well/",
     },
-        {
+    {
       title: "General Practice",
       genre: "Multiplayer Online-Koop Party Game",
       description:
@@ -322,30 +354,30 @@ export default function GamingLocalizationPortfolio() {
       image: "/images/marshals.jpg",
       link: "https://store.steampowered.com/app/3684360/Marshals_of_War_Orcblood/",
     },
-    /*{
+    {
       title: "Another Round",
       genre: "Roguelike Deckbuilder",
       description:
         "Welcome to The Old Fashioned, the local spot for off-the-books biz. We’re neutral ground for folks from all walks - pink mohawks, black trenchcoats, mirrorshades, even corpo suits. If you've got money & intel to share, you've got a seat here. Can I get you another round? ",
       image: "/images/anotherround.jpg",
       link: "https://store.steampowered.com/app/2798690/Another_Round/",
-    },*/
-    /*{
+    },
+    {
       title: "Null State",
       genre: "Turn Based Hacking Game",
       description:
         "You are a hacker - a rarity in a world nearly destroyed by a cascading global systems failure. Prowl through networks node by node, disabling their security in risky turn-based combat, as you explore branching storylines to uncover what caused Obsidian Wednesday.",
       image: "/images/nullstate.jpg",
       link: "https://store.steampowered.com/app/2166340/Null_State/#app_reviews_hash",
-    },*/
-    /*{
+    },
+    {
       title: "One Last Job",
       genre: "Turn Based CRPG",
       description:
         "Being a world-class fixer is about who you know: clients need discreet solutions, and crews want to see retirement. Then there's you, stuck in the middle with your rep on the line. Yeah, you're quitting the biz -- after one last job.",
       image: "/images/onelastjob.jpg",
       link: "https://store.steampowered.com/app/2798700/One_Last_Job/",
-    },*/
+    },
   ];
 
   return (
@@ -379,13 +411,9 @@ export default function GamingLocalizationPortfolio() {
                 <span>Localization</span>
               </h1>
 
-              <p className="text-xs text-white/60 mt-1">
-                by David Becker
-              </p>
+              <p className="text-xs text-white/60 mt-1">by David Becker</p>
             </div>
           </div>
-
-
 
           <nav className="hidden md:flex gap-8 text-sm uppercase tracking-wider text-white/70">
             <a
@@ -463,9 +491,7 @@ export default function GamingLocalizationPortfolio() {
                   <div className="text-white/60 mt-2">Projects Completed</div>
                 </div>
                 <div className="bg-black/40 border border-white/10 rounded-2xl p-6">
-                  <div className="text-4xl font-black text-green-300">
-                    80+
-                  </div>
+                  <div className="text-4xl font-black text-green-300">80+</div>
                   <div className="text-white/60 mt-2">Hours of LQA</div>
                 </div>
 
@@ -584,7 +610,11 @@ export default function GamingLocalizationPortfolio() {
                 what I truly love—crafting adventures for others to experience.
               </p>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/sushi.jpg" alt="About Me" className="project-image object-cover"/>
+              <img
+                src="/images/sushi.jpg"
+                alt="About Me"
+                className="project-image object-cover"
+              />
             </motion.div>
           </div>
         </div>
@@ -638,9 +668,8 @@ export default function GamingLocalizationPortfolio() {
                   </span>
                 </div>
 
-                <h3 className="hero-gradient text-2xl font-bold  min-h-[4rem]">
+                <h3 className="text-2xl font-bold  min-h-[4rem]">
                   {project.title}
-                  
                 </h3>
                 <div className="site-divider divider--compact" />
                 <div
@@ -656,7 +685,12 @@ export default function GamingLocalizationPortfolio() {
                     className="steam-link-btn"
                     onClick={(e) => {
                       e.stopPropagation();
-                      if (project?.link) window.open(project.link, "_blank", "noopener,noreferrer");
+                      if (project?.link)
+                        window.open(
+                          project.link,
+                          "_blank",
+                          "noopener,noreferrer",
+                        );
                     }}
                   >
                     <img
@@ -664,9 +698,7 @@ export default function GamingLocalizationPortfolio() {
                       alt=""
                       aria-hidden="true"
                       className="h-5 w-5"
-                      
                     />
-                    
                   </button>
                 </div>
               </div>
@@ -755,13 +787,14 @@ export default function GamingLocalizationPortfolio() {
           </p>
         </div>
 
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={handleSubmit}>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
                 Name
               </label>
               <input
+                name="name"
                 type="text"
                 placeholder="Your name"
                 className="form-input"
@@ -773,6 +806,7 @@ export default function GamingLocalizationPortfolio() {
                 Email
               </label>
               <input
+                name="email"
                 type="email"
                 placeholder="your@email.com"
                 className="form-input"
@@ -786,6 +820,7 @@ export default function GamingLocalizationPortfolio() {
                 Budget
               </label>
               <input
+                name="budget"
                 type="text"
                 placeholder="Estimated budget"
                 className="form-input"
@@ -796,7 +831,12 @@ export default function GamingLocalizationPortfolio() {
               <label className="block text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
                 Deadline
               </label>
-              <input type="date" className="form-input" />
+              <input
+                name="deadline"
+                type="date"
+                placeholder=""
+                className="form-input"
+              />
             </div>
 
             <div>
@@ -804,6 +844,7 @@ export default function GamingLocalizationPortfolio() {
                 Word Count
               </label>
               <input
+                name="wordCount"
                 type="text"
                 placeholder="Approximate words"
                 className="form-input"
@@ -817,6 +858,7 @@ export default function GamingLocalizationPortfolio() {
             </label>
 
             <textarea
+              name="message"
               rows={6}
               placeholder="Tell me about your game, languages, requirements, and timeline..."
               className="form-input"
