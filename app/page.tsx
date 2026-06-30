@@ -136,6 +136,7 @@ export default function GamingLocalizationPortfolio() {
   };
 
   useEffect(() => {
+    if (window.innerWidth < 1024) return;
     if (!glowRef.current) return;
 
     const glow = glowRef.current;
@@ -388,7 +389,7 @@ export default function GamingLocalizationPortfolio() {
       <div className="bg-orb orb4" />
 
       {/* Cursor Glow */}
-      <div ref={glowRef} className="cursor-glow" />
+      <div ref={glowRef} className="cursor-glow hidden lg:block" />
 
       {/* Navbar */}
       <header
@@ -397,16 +398,16 @@ export default function GamingLocalizationPortfolio() {
           isHeaderVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <img
               src="/images/transparent-logo.svg"
               alt="Locsmith Logo"
-              className="h-28 w-28 color-white"
+              className="h-14 w-14 md:h-24 md:w-24"
             />
 
             <div>
-              <h1 className="text-xl md:text-2xl font-bold tracking-wide leading-none">
+              <h1 className="text-base md:text-lg sm:text-xl md:text-xl md:text-2xl font-bold tracking-wide leading-none">
                 <span className="text-green-400">Locsmith </span>
                 <span>Localization</span>
               </h1>
@@ -415,28 +416,28 @@ export default function GamingLocalizationPortfolio() {
             </div>
           </div>
 
-          <nav className="hidden md:flex gap-8 text-sm uppercase tracking-wider text-white/70">
+          <nav className="hidden md:flex gap-8 text-xs md:text-sm uppercase tracking-wider text-white/70">
             <a
               href="#hero"
-              className="hover:text-green-400 transition-colors text-lg"
+              className="hover:text-green-400 transition-colors text-base md:text-lg"
             >
               Back to Top
             </a>
             <a
               href="#projects"
-              className="hover:text-green-400 transition-colors text-lg"
+              className="hover:text-green-400 transition-colors text-base md:text-lg"
             >
               Projects
             </a>
             <a
               href="#reviews"
-              className="hover:text-green-400 transition-colors text-lg"
+              className="hover:text-green-400 transition-colors text-base md:text-lg"
             >
               Reviews
             </a>
             <a
               href="#contact"
-              className="hover:text-green-400 transition-colors text-lg"
+              className="hover:text-green-400 transition-colors text-base md:text-lg"
             >
               Contact
             </a>
@@ -447,17 +448,17 @@ export default function GamingLocalizationPortfolio() {
       {/* Hero */}
       <section
         id="hero"
-        className="relative max-w-7xl mx-auto px-6 pt-28 pb-32"
+        className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-28 pb-16 md:pb-32"
       >
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 lg:gap-16 items-center">
           <div className="relative z-10">
-            <h2 className="md:text-6xl font-black leading-tight mb-6">
+            <h2 className="text-2xl md:text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-6">
               <span className="hero-gradient">
                 Forged by Hand. Built for Players.
               </span>
             </h2>
 
-            <p className="text-lg text-white/70 max-w-xl leading-relaxed mb-10">
+            <p className="text-base md:text-base md:text-lg text-white/70 max-w-xl leading-relaxed mb-10">
               Professional video game localization focused on immersive
               storytelling, natural dialogue, and culturally adapted player
               experiences.
@@ -478,25 +479,29 @@ export default function GamingLocalizationPortfolio() {
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl rounded-3xl" />
 
             <div className="relative backdrop-blur-2xl bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl">
-              <div className="grid grid-cols-3 gap-6">
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-6">
-                  <div className="text-4xl font-black text-green-300">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-4 md:p-6">
+                <div className="bg-black/40 border border-white/10 rounded-2xl p-4 md:p-6">
+                  <div className="text-2xl md:text-4xl font-black text-green-300">
                     1.5M+
                   </div>
                   <div className="text-white/60 mt-2">Words Translated</div>
                 </div>
 
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-6">
-                  <div className="text-4xl font-black text-green-300">35+</div>
+                <div className="bg-black/40 border border-white/10 rounded-2xl p-4 md:p-6">
+                  <div className="text-2xl md:text-4xl font-black text-green-300">
+                    35+
+                  </div>
                   <div className="text-white/60 mt-2">Projects Completed</div>
                 </div>
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-6">
-                  <div className="text-4xl font-black text-green-300">80+</div>
+                <div className="bg-black/40 border border-white/10 rounded-2xl p-4 md:p-6">
+                  <div className="text-2xl md:text-4xl font-black text-green-300">
+                    80+
+                  </div>
                   <div className="text-white/60 mt-2">Hours of LQA</div>
                 </div>
 
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-6 col-span-3">
-                  <div className="text-2xl font-bold mb-3 text-green-300">
+                <div className="bg-black/40 border border-white/10 rounded-2xl p-4 md:p-6 col-span-3">
+                  <div className="text-xl md:text-2xl font-bold mb-3 text-green-300">
                     Specializations
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -531,7 +536,7 @@ export default function GamingLocalizationPortfolio() {
       <section className="max-w-6xl mx-auto space-y-12">
         <div className=" uppercase tracking-[0.3em] text-sm mb-4">
           <p className="text-green-400 pb-4">About Me</p>
-          <h3 className="text-2xl font-bold mb-8">
+          <h3 className="text-xl md:text-2xl font-bold mb-8">
             What started as a passion project <br />
             turned into a growing localization business.
           </h3>
@@ -540,12 +545,12 @@ export default function GamingLocalizationPortfolio() {
         <div>
           {/* About content */}
           {/* Block 1*/}
-          <div className="text-white/70 text-lg leading-relaxed space-y-6">
+          <div className="text-white/70 text-base md:text-lg leading-relaxed space-y-6">
             <h3 className="text-green-400 text-xl pb-4">
               The Legend of Locsmith Localization
             </h3>
             <motion.div
-              className="grid lg:grid-cols-2 gap-16 items-center"
+              className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
               variants={fadeLeft}
               initial="hidden"
               whileInView="visible"
@@ -564,19 +569,27 @@ export default function GamingLocalizationPortfolio() {
                 and every story may reveal its true power.
               </p>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/sushi.jpg" alt="About Me" />
+              <img
+                src="/images/sushi.jpg"
+                alt="About Me"
+                className="w-full rounded-2xl object-cover"
+              />
             </motion.div>
 
             {/* Block 2*/}
             <motion.div
-              className="grid lg:grid-cols-2 gap-16 items-center"
+              className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
               variants={fadeRight}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/sushi.jpg" alt="About Me" />
+              <img
+                src="/images/sushi.jpg"
+                alt="About Me"
+                className="w-full rounded-2xl object-cover"
+              />
               <p>
                 From humble indie titles to sprawling RPGs, I aid developers in
                 crafting authentic, handcrafted experiences that feel truly
@@ -594,7 +607,7 @@ export default function GamingLocalizationPortfolio() {
             </motion.div>
             {/* Block 3*/}
             <motion.div
-              className="grid lg:grid-cols-2 gap-16 items-center"
+              className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
               variants={fadeLeft}
               initial="hidden"
               whileInView="visible"
@@ -613,7 +626,7 @@ export default function GamingLocalizationPortfolio() {
               <img
                 src="/images/sushi.jpg"
                 alt="About Me"
-                className="project-image object-cover"
+                className="w-full rounded-2xl object-cover"
               />
             </motion.div>
           </div>
@@ -627,12 +640,12 @@ export default function GamingLocalizationPortfolio() {
             Featured Projects
           </div>
 
-          <h3 className="text-4xl md:text-6xl font-bold max-w-3xl leading-tight">
+          <h3 className="text-2xl md:text-4xl md:text-6xl font-bold max-w-3xl leading-tight">
             My Portfolio
           </h3>
         </div>
         <motion.div
-          className="grid md:grid-cols-3 gap-12"
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -661,17 +674,17 @@ export default function GamingLocalizationPortfolio() {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-4 md:p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm uppercase tracking-widest text-green-400">
+                  <span className="text-xs md:text-sm uppercase tracking-widest text-green-400">
                     {project.genre}
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-bold  min-h-[4rem]">
+                <h3 className="text-xl md:text-2xl font-bold  min-h-[4rem]">
                   {project.title}
                 </h3>
-                <div className="site-divider divider--compact" />
+                <div className="project-divider" />
                 <div
                   className={`project-content ${
                     openProjects.includes(index) ? "open" : ""
@@ -685,20 +698,19 @@ export default function GamingLocalizationPortfolio() {
                     className="steam-link-btn"
                     onClick={(e) => {
                       e.stopPropagation();
-                      if (project?.link)
+
+                      if (project.link) {
                         window.open(
                           project.link,
                           "_blank",
                           "noopener,noreferrer",
                         );
+                      }
                     }}
                   >
-                    <img
-                      src="/images/steam.svg"
-                      alt=""
-                      aria-hidden="true"
-                      className="h-5 w-5"
-                    />
+                    <img src="/images/steam.svg" alt="Steam" />
+
+                    <span>View on Steam</span>
                   </button>
                 </div>
               </div>
@@ -708,13 +720,16 @@ export default function GamingLocalizationPortfolio() {
       </section>
       <div className="site-divider"></div>
       {/* Reviews */}
-      <section id="reviews" className="max-w-7xl mx-auto px-6 py-24 relative">
+      <section
+        id="reviews"
+        className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 relative"
+      >
         <div className="mb-14">
           <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
             Reviews
           </div>
 
-          <h3 className="text-4xl md:text-5xl font-bold">
+          <h3 className="text-2xl md:text-4xl md:text-5xl font-bold">
             What my clients say
           </h3>
         </div>
@@ -769,28 +784,31 @@ export default function GamingLocalizationPortfolio() {
       </section>
       <div className="site-divider"></div>
       {/* Contact */}
-      <section id="contact" className="max-w-5xl mx-auto px-6 py-24">
+      <section
+        id="contact"
+        className="max-w-5xl mx-auto px-4 sm:px-6 py-16 md:py-24"
+      >
         <div className="text-center mb-14">
           <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
             Contact
           </div>
 
-          <h3 className="text-4xl md:text-6xl font-bold mb-6">
+          <h3 className="text-2xl md:text-4xl md:text-6xl font-bold mb-6">
             Let’s Work Together
           </h3>
 
-          <p className="text-white/65 text-lg max-w-2xl mx-auto">
+          <p className="text-white/65 text-base md:text-lg max-w-2xl mx-auto">
             Looking for high-quality and affordable game localization?
           </p>
-          <p className="text-white/65 text-lg max-w-2xl mx-auto">
+          <p className="text-white/65 text-base md:text-lg max-w-2xl mx-auto">
             Let me know your project details below!
           </p>
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 md:p-6">
             <div>
-              <label className="block text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
+              <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
                 Name
               </label>
               <input
@@ -802,7 +820,7 @@ export default function GamingLocalizationPortfolio() {
             </div>
 
             <div>
-              <label className="block text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
+              <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
                 Email
               </label>
               <input
@@ -814,9 +832,9 @@ export default function GamingLocalizationPortfolio() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4 md:p-6">
             <div>
-              <label className="block text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
+              <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
                 Budget
               </label>
               <input
@@ -828,7 +846,7 @@ export default function GamingLocalizationPortfolio() {
             </div>
 
             <div>
-              <label className="block text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
+              <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
                 Deadline
               </label>
               <input
@@ -840,7 +858,7 @@ export default function GamingLocalizationPortfolio() {
             </div>
 
             <div>
-              <label className="block text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
+              <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
                 Word Count
               </label>
               <input
@@ -853,7 +871,7 @@ export default function GamingLocalizationPortfolio() {
           </div>
 
           <div>
-            <label className="block text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
+            <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
               Project Description
             </label>
 

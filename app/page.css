@@ -70,12 +70,6 @@
     transform 0.4s ease;
 }
 
-.project-card:hover {
-  border-color: rgba(52, 211, 153, 0.35);
-  transform: translateY(-4px);
-  scale: 1.05;
-}
-
 .project-content {
   max-height: 0;
   opacity: 0;
@@ -107,16 +101,40 @@
   transition: transform 0.4s ease;
 }
 
-.steam-link-btn{
-  @apply mt-1 p-2 rounded-full
-         bg-[#081B3E]
-         font-bold
-         transition
-         hover:bg-[#081B3E] hover:shadow
+.steam-link-btn {
+  @apply mt-6
+         inline-flex
+         items-center
+         gap-3
+         px-4
+         py-3
+         rounded-xl
+         bg-[#132344]
+         border
+         border-[#2d5ca8]
+         text-white
+         font-semibold
+         transition-all
+         duration-300;
+
+  width: fit-content;
 }
 
-.steam-link-btn:disabled{
-  @apply opacity-50 cursor-not-allowed hover:bg-slate-900 hover:border-slate-700 hover:shadow-none;
+.steam-link-btn:hover {
+  background: #1b3b72;
+  border-color: #66c0f4;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(102, 192, 244, 0.25);
+}
+
+.steam-link-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+.steam-link-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .skill-card {
@@ -143,7 +161,7 @@
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 2rem;
-  padding: 2.5rem;
+  padding: 1.25rem;
   position: relative;
   z-index: 1;
   backdrop-filter: blur(20px);
@@ -154,12 +172,11 @@
     background 0.35s ease,
     opacity 0.35s ease;
   animation: review-switch 0.45s ease;
-}
-
-.review-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(52, 211, 153, 0.35);
-  background: rgba(255, 255, 255, 0.1);
+  @media (min-width: 768px) {
+    .review-card {
+      padding: 2.5rem;
+    }
+  }
 }
 
 @keyframes review-switch {
@@ -187,6 +204,7 @@
 .review-action-btn {
   padding: 1rem 1.8rem;
   border-radius: 9999px;
+  width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.06);
   color: #f8fafc;
@@ -197,6 +215,11 @@
     transform 0.25s ease,
     background 0.25s ease,
     border-color 0.25s ease;
+  @media (min-width: 768px) {
+    .review-action-btn {
+      width: auto;
+    }
+  }
 }
 
 .review-action-btn:hover {
@@ -339,11 +362,6 @@
   height: 1px;
 }
 
-.site-divider::before {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.06);
-}
-
 .site-divider::after {
   width: 1820px;
   background: linear-gradient(
@@ -354,8 +372,17 @@
     transparent
   );
 }
-.divider--compact {
+
+.project-divider {
+  width: 100%;
+  height: 1px;
   margin: 1rem 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(52, 211, 153, 0.7),
+    transparent
+  );
 }
 /* Sections */
 
@@ -380,6 +407,7 @@
   px-5 py-4
   outline-none
   transition-colors;
+  font-size: 16px;
 }
 
 .form-input:focus {
@@ -496,5 +524,44 @@
   100% {
     opacity: 0.4;
     transform: scale(0.95);
+  }
+}
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 768px) {
+  .review-card {
+    padding: 1.25rem;
+  }
+
+  .review-action-btn {
+    width: 100%;
+  }
+
+  .bg-orb {
+    width: 140px;
+    height: 140px;
+    filter: blur(70px);
+  }
+
+  .site-divider {
+    margin: 3rem auto;
+  }
+
+  .site-divider::after {
+    width: 90vw;
+  }
+
+  .project-content.open {
+    min-height: auto;
+  }
+}
+@media (hover: hover) {
+  .project-card:hover {
+    transform: translateY(-4px);
+    scale: 1.05;
+  }
+
+  .review-card:hover {
+    transform: translateY(-8px);
   }
 }

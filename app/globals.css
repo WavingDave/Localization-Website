@@ -2,27 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* deine globalen Styles */
-
 :root {
   --background: #050505;
   --foreground: #f5f5f5;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
   min-height: 100%;
-  background: #050505;
+  background: var(--background);
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   min-height: 100%;
   margin: 0;
-  user-select: none;
-  background: transparent;
   position: relative;
+  overflow-x: hidden;
+
+  background: transparent;
+  color: var(--foreground);
+
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
   --mouse-x: 50%;
   --mouse-y: 50%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 body::before,
@@ -77,4 +119,80 @@ body::after {
   animation:
     ambientGlow2 8s ease-in-out infinite alternate,
     drift2 40s linear infinite;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.35);
+}
+
+@keyframes ambientGlow {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes ambientGlow2 {
+  0% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes drift1 {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(80px, -40px);
+  }
+}
+
+@keyframes drift2 {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-60px, 50px);
+  }
+}
+
+/* ---------- Mobile Optimierungen ---------- */
+
+@media (max-width: 768px) {
+  body::before,
+  body::after {
+    filter: blur(45px);
+  }
+
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (hover: none) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
