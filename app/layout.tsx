@@ -2,9 +2,32 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "Locsmith Localization",
+  title: "Game Localization | Locsmith",
   description:
-    "Professional handcrafted German video game localization by David Becker.",
+    "Professional video game localization focused on immersive storytelling, natural dialogue, and culturally adapted player experiences.",
+
+  openGraph: {
+    title: "Game Localization Portfolio | Dein Name",
+    description:
+      "Immersive storytelling & professional game localization services.",
+    url: "https://locsmith.de",
+    siteName: "Localization Portfolio",
+    type: "website",
+    images: [
+      {
+        url: "./public/images/transparent-logo.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Game Localization Portfolio",
+    description: "Immersive storytelling & game localization expert.",
+    images: ["/og-image.png"],
+  },
 };
 
 export const viewport: Viewport = {

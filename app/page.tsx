@@ -41,6 +41,16 @@ export default function GamingLocalizationPortfolio() {
     }
   };
 
+  const partners = [
+    {
+      company: "To Transcreation and Beyond",
+      slogan:
+        "Together, we can make a world where handcrafted game localizations are valued.",
+      logo: "/images/ttab.png",
+      link: "https://totranscreationandbeyond.com/",
+    },
+  ];
+
   const reviews = [
     {
       company: "Hotloop - The Last Flame",
@@ -358,10 +368,10 @@ export default function GamingLocalizationPortfolio() {
             />
 
             <div>
-              <h1 className="text-base sm:text-xl md:text-xl font-bold tracking-wide leading-none">
-                <span className="text-green-400">Locsmith </span>
-                <span>Localization</span>
-              </h1>
+              <div className="font-bold tracking-wide leading-none text-xl md:text-2xl">
+                <span className="text-green-400">Locsmith</span>
+                <span> Localization</span>
+              </div>
 
               <p className="text-xs text-white/60 mt-1">by David Becker</p>
             </div>
@@ -403,14 +413,12 @@ export default function GamingLocalizationPortfolio() {
       >
         <div className="hero-grid">
           <div className="hero-content">
-            <h2 className="hero-title">
-              <span className="hero-gradient">
-                Forged by Hand. Built for Players.
-              </span>
-            </h2>
+            <h1 className="h1 hero-gradient">
+              Localization <br /> Forged by Hand. Built for Players.
+            </h1>
 
             <p className="hero-description">
-              Professional video game localization focused on immersive
+              Professional video game transcreation focused on immersive
               storytelling, natural dialogue, and culturally adapted player
               experiences.
             </p>
@@ -447,9 +455,9 @@ export default function GamingLocalizationPortfolio() {
                 </div>
 
                 <div className="hero-specialization-card">
-                  <div className="hero-specialization-title">
+                  <h2 className="h2 hero-specialization-title">
                     Specializations
-                  </div>
+                  </h2>
 
                   <div className="hero-specialization-tags">
                     {[
@@ -584,9 +592,7 @@ export default function GamingLocalizationPortfolio() {
             Featured Projects
           </div>
 
-          <h3 className="text-2xl md:text-6xl font-bold max-w-3xl leading-tight">
-            My Portfolio
-          </h3>
+          <h2 className="h2">My Portfolio</h2>
         </div>
 
         <div className="full-bleed-wrapper">
@@ -604,8 +610,8 @@ export default function GamingLocalizationPortfolio() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={project.image}
-                        alt={project.title}
-                        className="object-cover"
+                        alt={`Localization work for ${project.title}`}
+                        loading="lazy"
                       />
                     </div>
                     <div className="project-card-body p-4 flex flex-col gap-3">
@@ -705,14 +711,12 @@ export default function GamingLocalizationPortfolio() {
         id="reviews"
         className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 relative"
       >
-        <div className="mb-14">
+        <div className="mb-14 text-center">
           <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4 text-center">
             Reviews
           </div>
 
-          <h3 className="text-2xl md:text-5xl font-bold text-center">
-            What my clients say
-          </h3>
+          <h2 className="h2">What my clients say</h2>
         </div>
 
         <div className="review-panel">
@@ -767,18 +771,16 @@ export default function GamingLocalizationPortfolio() {
       {/* Contact */}
       <section
         id="contact"
-        className="max-w-5xl mx-auto px-4 sm:px-6 py-16 md:py-24"
+        className="max-w-5xl mx-auto px-4 sm:px-6 py-16 md:py-2"
       >
         <div className="text-center mb-14">
-          <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
+          <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-2">
             Contact
           </div>
 
-          <h3 className="text-2xl md:text-6xl font-bold mb-6">
-            Let’s Work Together
-          </h3>
+          <h2 className="h2">Let&apos;s work together</h2>
 
-          <p className="text-white/65 text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-white/65 text-base md:text-lg max-w-2xl mx-auto mt-5">
             Looking for high-quality and affordable game localization?
           </p>
           <p className="text-white/65 text-base md:text-lg max-w-2xl mx-auto">
@@ -869,7 +871,37 @@ export default function GamingLocalizationPortfolio() {
           </button>
         </form>
       </section>
+      <div className="site-divider"></div>
+      <section id="partners" className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+        <div className="text-center mb-12">
+          <p className="section-label text-green-400">Partners</p>
+          <h2 className="h2 mt-4">Trusted Collaborations</h2>
+        </div>
 
+        <div className="grid gap-6">
+          {partners.map((partner) => (
+            <a
+              key={partner.company}
+              href={partner.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="partner-card"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={partner.logo}
+                alt={partner.company}
+                className="partner-logo"
+              />
+
+              <div className="partner-content">
+                <h3 className="h3">{partner.company}</h3>
+                <p className="partner-slogan">{partner.slogan}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
       {/* Footer */}
       <footer className="border-t border-white/10 py-10 px-6 text-center text-white/40 text-sm">
         © 2026 Locsmith Localization. All rights reserved.
