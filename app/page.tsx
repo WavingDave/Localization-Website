@@ -580,11 +580,11 @@ export default function GamingLocalizationPortfolio() {
       {/* Projects */}
       <section id="projects" className="max-w-7xl mx-auto px-6 py-24">
         <div className="mb-16">
-          <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4 text-center">
+          <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
             Featured Projects
           </div>
 
-          <h3 className="text-2xl md:text-6xl font-bold max-w-3xl leading-tight text-center">
+          <h3 className="text-2xl md:text-6xl font-bold max-w-3xl leading-tight">
             My Portfolio
           </h3>
         </div>
