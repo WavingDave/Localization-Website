@@ -363,7 +363,7 @@ export default function GamingLocalizationPortfolio() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/transparent-logo.svg"
-              alt="Locsmith Logo"
+              alt="Locsmith Localization"
               className="h-14 w-14 md:h-24 md:w-24"
             />
 
@@ -787,7 +787,6 @@ export default function GamingLocalizationPortfolio() {
             Let me know your project details below!
           </p>
         </div>
-
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="grid md:grid-cols-2 gap-4">
             <div>

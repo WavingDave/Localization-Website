@@ -838,6 +838,31 @@
   }
 }
 
+@media (max-width: 768px) {
+  .carousel-border-left,
+  .carousel-border-right {
+    width: 30px; /* vorher 80px */
+  }
+
+  .project-marquee {
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      black 20px,
+      black calc(100% - 20px),
+      transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      black 20px,
+      black calc(100% - 20px),
+      transparent 100%
+    );
+  }
+}
+
 .partner-card {
   @apply flex items-center gap-6 p-6 rounded-3xl
   bg-white/5 border border-white/10

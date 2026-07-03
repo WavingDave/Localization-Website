@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Professional video game localization focused on immersive storytelling, natural dialogue, and culturally adapted player experiences.",
 
   openGraph: {
-    title: "Game Localization Portfolio | Dein Name",
+    title: "Locsmith Localization",
     description:
       "Immersive storytelling & professional game localization services.",
     url: "https://locsmith.de",
@@ -20,13 +20,6 @@ export const metadata: Metadata = {
         height: 630,
       },
     ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Game Localization Portfolio",
-    description: "Immersive storytelling & game localization expert.",
-    images: ["/og-image.png"],
   },
 };
 
