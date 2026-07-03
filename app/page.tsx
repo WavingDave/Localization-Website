@@ -102,32 +102,6 @@ export default function GamingLocalizationPortfolio() {
     },
   };
 
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 80,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.2,
-        ease: [0.43, 0.13, 0.23, 0.96] as const,
-      },
-    },
-  };
-
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     if (!glowRef.current) return;
@@ -183,28 +157,24 @@ export default function GamingLocalizationPortfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollTop = window.scrollY;
-      const scrollThreshold = 50;
+      const current = window.scrollY;
 
-      if (currentScrollTop > lastScrollTopRef.current + scrollThreshold) {
-        // Scrolling down significantly
+      if (current < 50) {
+        setIsHeaderVisible(true);
+      } else if (current > lastScrollTopRef.current) {
+        // runter
         setIsHeaderVisible(false);
-      } else if (
-        currentScrollTop <
-        lastScrollTopRef.current - scrollThreshold
-      ) {
-        // Scrolling up significantly
+      } else {
+        // hoch
         setIsHeaderVisible(true);
       }
 
-      lastScrollTopRef.current = currentScrollTop;
+      lastScrollTopRef.current = current;
     };
 
-    window.addEventListener("scroll", handleScroll, false);
+    window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll, false);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const projects = [
@@ -212,8 +182,6 @@ export default function GamingLocalizationPortfolio() {
       title: "The Last Flame",
       genre: "Roguelike Strategy Autobattler",
       type: "Full Game",
-      description:
-        "Recruit a party of unique heroes, fight deadly encounters, loot and craft powerful gear, discover and create thousands of synergetic builds! The Last Flame is an endless roguelike auto-battler in which you guide a righteous party of heroes through many challenges. ",
       image: "/images/the_last_flame_header.jpg",
       link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
@@ -221,8 +189,6 @@ export default function GamingLocalizationPortfolio() {
       title: "A Gentlemen's Dispute",
       genre: "Multiplayer Action Party Brawler",
       type: "Full Game",
-      description:
-        "A fancy party brawler for proper scoundrels! Sling traps, swing bats, and fire cannons in destructible arenas as you scramble for absurd perks and weapons. Outlast your so-called peers by any gentlemanly means necessary - all in the name of good sport, of course. ",
       image: "/images/gentlemens_dispute.jpg",
       link: "https://store.steampowered.com/app/2820700/A_Gentlemens_Dispute/",
     },
@@ -230,8 +196,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Forage Wizard",
       genre: "Crafting Automation Builder",
       type: "Full Game",
-      description:
-        "Click, craft and collect your way to alchemical mastery. Progress through a branching skill tree and explore the forbidden woods. Collect resources and build machines of magic. Slay monsters, farm crops and automate your production to become the all-powerful Forage Wizard! ",
       image: "/images/forage_wizard.jpg",
       link: "https://store.steampowered.com/app/3868320/Forage_Wizard/",
     },
@@ -239,8 +203,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Sandcastle",
       genre: "Cozy Relaxing Sandbox Builder",
       type: "Steam Page",
-      description:
-        "On a sun-warmed tropical shore, quietly craft a mighty sandcastle. Carve moats, raise towers and walls, then embellish with driftwood, pebbles, shells and seaweed. Gentle tides, soft surf and a calming color palette turn every build into a peaceful, relaxing moment. ",
       image: "/images/Sandcastle.jpg",
       link: "hhttps://store.steampowered.com/app/3216520/Sandcastle/",
     },
@@ -248,8 +210,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Starvester",
       genre: "Incremental Space Automation ",
       type: "Demo",
-      description:
-        "A short incremental game about expanding a star-system wide factory to build giant megastructures in space. Deploy swarms of drones, mine resources, unlock upgrades and harvest the power of the stars! ",
       image: "/images/starvester.jpg",
       link: "https://store.steampowered.com/app/4194800/Starvester/",
     },
@@ -257,8 +217,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Cubetory",
       genre: "Factory Automation Builder",
       type: "Full Game",
-      description:
-        "Build a huge factory on a tiny island! Resources are scarce and unique - tweak and optimize everything for peak efficiency. Start with simple painted cubes, unlock tons of upgrades, and scale up to complex production chains. No enemies, just satisfying spaghetti. ",
       image: "/images/cubetory.jpg",
       link: "https://store.steampowered.com/app/3027060/Cubetory/",
     },
@@ -266,8 +224,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Reclaim The Sea",
       genre: "Roguelike Strategy Adventure",
       type: "Full Game",
-      description:
-        "Reclaim the Sea is a roguelike strategy game set in a pirate fantasy world. Fight your way through randomly generated maps and text events. Command your pirate crew, upgrade your ship and make tactical decisions to beat the boss and save the world… or die trying. ",
       image: "/images/reclaim_the_sea.jpg",
       link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
     },
@@ -275,8 +231,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Free as Birds : UAZO",
       genre: "Open World Survival Craft",
       type: "Steam Page",
-      description:
-        "Soar as a curious bird on a mysterious island filled with secrets, ancient ruins, and hidden wonders. Explore with your friends, gather resources, build, survive and uncover the island’s story in this serene adventure. ",
       image: "/images/free_as_bird.jpg",
       link: "https://store.steampowered.com/app/3182050/Free_as_birds__UAZO/",
     },
@@ -284,8 +238,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Interstellar Espionage Inc.",
       genre: "Economy Strategy Simulation",
       type: "Full Game",
-      description:
-        "Manage an interstellar spy business in this strategy game with lunchbreak-length runs. Release your inner math-nerd to manipulate statistical odds for stealing data and technology. Build a galaxy-wide espionage network, partner with megacorporations or sell their secrets to bankrupt them. Profit! ",
       image: "/images/Interstellar.jpg",
       link: "https://store.steampowered.com/app/3563480/Interstellar_Espionage_Inc/",
     },
@@ -293,8 +245,6 @@ export default function GamingLocalizationPortfolio() {
       title: "King’s Well",
       genre: "Roguelite Poker Deckbuilder",
       type: "Steam Page",
-      description:
-        "Feed rusty steampunk machines with cards to trigger powerful attacks and combos in this roguelite poker deckbuilder. Demo available now. ",
       image: "/images/kingswell.jpg",
       link: "https://store.steampowered.com/app/4332200/Kings_Well/",
     },
@@ -302,8 +252,6 @@ export default function GamingLocalizationPortfolio() {
       title: "General Practice",
       genre: "Multiplayer Online-Koop Party Game",
       type: "Steam Page",
-      description:
-        "Diagnose and (mis)treat patients to meet tight deadlines and high expectations in this wacky medical co-op adventure. Wear many hats, master numerous tools, multitask, manage the chaos: all while trying to do no harm! Play solo or enjoy the tomfoolery with up to 4 players, locally or online.",
       image: "/images/generalPractice.jpg",
       link: "https://store.steampowered.com/app/3833730/General_Practice/",
     },
@@ -311,8 +259,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Super Blood Hockey: Rogue Manager",
       genre: "Roguelike Deckbuilding Autobattler",
       type: "Steam Page",
-      description:
-        "A sports game where you don't control the players, instead play as a shady coach and use your deck of dirty tricks to become season champion. A unique hybrid of roguelike deckbuilder, auto-battler, and high action arcade hockey. ",
       image: "/images/blood_hockey_rogue.jpg",
       link: "https://store.steampowered.com/app/3911400/Super_Blood_Hockey_Rogue_Manager/",
     },
@@ -320,8 +266,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Timebound",
       genre: "Mystery Exploration Time Puzzle",
       type: "Demo",
-      description:
-        "An exploration puzzle adventure in mystical ruins. Explore a world filled with puzzles, uncover the magic left behind, discover what's hidden in plain sight, learn the rules and break them. ",
       image: "/images/timebound.jpg",
       link: "https://store.steampowered.com/app/3220700/Timebound/",
     },
@@ -329,8 +273,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Corner Quest",
       genre: "Idler Incremental Auto battler",
       type: "Steam Page",
-      description:
-        "An idle auto-battler that sits in the corner of your screen while you do other things. ",
       image: "/images/cornerquest.jpg",
       link: "https://store.steampowered.com/app/4254260/Corner_Quest/",
     },
@@ -338,8 +280,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Sushi On Wheels",
       genre: "Cooking Management Simulation",
       type: "Steam Page",
-      description:
-        "Run your dream sushi truck in Sushi On Wheels! Prep ingredients, customize your truck, and serve handmade sushi to hungry locals. Upgrade your gear, discover new recipes, and build your reputation in this cozy management game set in a charming Japanese town. ",
       image: "/images/sushi.jpg",
       link: "https://store.steampowered.com/app/3749760/Sushi_On_Wheels/",
     },
@@ -347,8 +287,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Danger World",
       genre: "Choose Your Own Adventure RPG",
       type: "Steam Page",
-      description:
-        "Explore an epic fantasy world alongside three heroes on a quest to recover a stolen jewel. Guide your party to victory in turn-based battles, make decisions that will determine the events of the story, and uncover the ancient secrets of Eldora as you race to catch the mechanical thief. ",
       image: "/images/danger_world.jpg",
       link: "https://store.steampowered.com/app/3229420/Danger_World/",
     },
@@ -356,8 +294,6 @@ export default function GamingLocalizationPortfolio() {
       title: "PRITTO PRISONER",
       genre: "Multiplayer Party Game",
       type: "Full Game",
-      description:
-        "You're the world's softest criminals in an island prison with mandatory nap rooms. Your escape plan? Eat bread, poop until the gates open, and pee on the robots chasing you. Break out with three friends, or play the robots tucking them back in. A wacky 4v2 prison break in quick 10-minute matches. ",
       image: "/images/pritto.jpg",
       link: "https://store.steampowered.com/app/3036800/PRITTO_PRISONER/",
     },
@@ -365,8 +301,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Marshals of War: Orcblood",
       genre: "Strategy Fantasy RTS",
       type: "Steam Page",
-      description:
-        "Command powerful heroes and epic armies in Marshals of War: Orcblood, a stylized fantasy action Real Time Strategy game. Cast spells, defeat bosses, loot treasure, build defenses, and lead men, dwarves and elves to victory, in solo, or co-op against the orcs and their masters. ",
       image: "/images/marshals.jpg",
       link: "https://store.steampowered.com/app/3684360/Marshals_of_War_Orcblood/",
     },
@@ -374,8 +308,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Another Round",
       genre: "Roguelike Deckbuilder",
       type: "Full Game",
-      description:
-        "Welcome to The Old Fashioned, the local spot for off-the-books biz. We’re neutral ground for folks from all walks - pink mohawks, black trenchcoats, mirrorshades, even corpo suits. If you've got money & intel to share, you've got a seat here. Can I get you another round? ",
       image: "/images/anotherround.jpg",
       link: "https://store.steampowered.com/app/2798690/Another_Round/",
     },
@@ -383,8 +315,6 @@ export default function GamingLocalizationPortfolio() {
       title: "Null State",
       genre: "Turn Based Hacking Game",
       type: "Full Game",
-      description:
-        "You are a hacker - a rarity in a world nearly destroyed by a cascading global systems failure. Prowl through networks node by node, disabling their security in risky turn-based combat, as you explore branching storylines to uncover what caused Obsidian Wednesday.",
       image: "/images/nullstate.jpg",
       link: "https://store.steampowered.com/app/2166340/Null_State/#app_reviews_hash",
     },
@@ -392,8 +322,6 @@ export default function GamingLocalizationPortfolio() {
       title: "One Last Job",
       genre: "Turn Based CRPG",
       type: "Full Game",
-      description:
-        "Being a world-class fixer is about who you know: clients need discreet solutions, and crews want to see retirement. Then there's you, stuck in the middle with your rep on the line. Yeah, you're quitting the biz -- after one last job.",
       image: "/images/onelastjob.jpg",
       link: "https://store.steampowered.com/app/2798700/One_Last_Job/",
     },
@@ -416,12 +344,13 @@ export default function GamingLocalizationPortfolio() {
       {/* Navbar */}
       <header
         ref={headerRef}
-        className={`sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-black/40 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/10 bg-black/40 transition-transform duration-300 ${
           isHeaderVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/transparent-logo.svg"
               alt="Locsmith Logo"
@@ -429,7 +358,7 @@ export default function GamingLocalizationPortfolio() {
             />
 
             <div>
-              <h1 className="text-base md:text-lg sm:text-xl md:text-xl md:text-2xl font-bold tracking-wide leading-none">
+              <h1 className="text-base sm:text-xl md:text-xl font-bold tracking-wide leading-none">
                 <span className="text-green-400">Locsmith </span>
                 <span>Localization</span>
               </h1>
@@ -470,23 +399,23 @@ export default function GamingLocalizationPortfolio() {
       {/* Hero */}
       <section
         id="hero"
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-28 pb-16 md:pb-32"
+        className="hero-section relative max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-28 pb-16 md:pb-32"
       >
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 lg:gap-16 items-center">
-          <div className="relative z-10">
-            <h2 className="text-2xl md:text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-6">
+        <div className="hero-grid">
+          <div className="hero-content">
+            <h2 className="hero-title">
               <span className="hero-gradient">
                 Forged by Hand. Built for Players.
               </span>
             </h2>
 
-            <p className="text-base md:text-base md:text-lg text-white/70 max-w-xl leading-relaxed mb-10">
+            <p className="hero-description">
               Professional video game localization focused on immersive
               storytelling, natural dialogue, and culturally adapted player
               experiences.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="hero-buttons">
               <a href="#projects" className="btn-primary">
                 View Projects
               </a>
@@ -497,36 +426,32 @@ export default function GamingLocalizationPortfolio() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl rounded-3xl" />
+          <div className="hero-stats-wrapper">
+            <div className="hero-stats-glow" />
 
-            <div className="relative backdrop-blur-2xl bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-4 md:p-6">
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-4 md:p-6">
-                  <div className="text-2xl md:text-4xl font-black text-green-300">
-                    1.5M+
-                  </div>
-                  <div className="text-white/60 mt-2">Words Translated</div>
+            <div className="hero-stats-panel">
+              <div className="hero-stats-grid">
+                <div className="hero-stat-card">
+                  <div className="hero-stat-number">1.5M+</div>
+                  <div className="hero-stat-label">Words Translated</div>
                 </div>
 
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-4 md:p-6">
-                  <div className="text-2xl md:text-4xl font-black text-green-300">
-                    35+
-                  </div>
-                  <div className="text-white/60 mt-2">Projects Completed</div>
-                </div>
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-4 md:p-6">
-                  <div className="text-2xl md:text-4xl font-black text-green-300">
-                    80+
-                  </div>
-                  <div className="text-white/60 mt-2">Hours of LQA</div>
+                <div className="hero-stat-card">
+                  <div className="hero-stat-number">35+</div>
+                  <div className="hero-stat-label">Projects Completed</div>
                 </div>
 
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-4 md:p-6 col-span-3">
-                  <div className="text-xl md:text-2xl font-bold mb-3 text-green-300">
+                <div className="hero-stat-card">
+                  <div className="hero-stat-number">80+</div>
+                  <div className="hero-stat-label">Hours of LQA</div>
+                </div>
+
+                <div className="hero-specialization-card">
+                  <div className="hero-specialization-title">
                     Specializations
                   </div>
-                  <div className="flex flex-wrap gap-2">
+
+                  <div className="hero-specialization-tags">
                     {[
                       "From AAA to Indie Games",
                       "Roguelites & Roguelikes",
@@ -539,10 +464,7 @@ export default function GamingLocalizationPortfolio() {
                       "Autobattler",
                       "And more...",
                     ].map((item) => (
-                      <span
-                        key={item}
-                        className="px-3 py-2 rounded-full bg-white/10 text-sm text-white/70"
-                      >
+                      <span key={item} className="hero-tag">
                         {item}
                       </span>
                     ))}
@@ -658,134 +580,124 @@ export default function GamingLocalizationPortfolio() {
       {/* Projects */}
       <section id="projects" className="max-w-7xl mx-auto px-6 py-24">
         <div className="mb-16">
-          <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
+          <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4 text-center">
             Featured Projects
           </div>
 
-          <h3 className="text-2xl md:text-4xl md:text-6xl font-bold max-w-3xl leading-tight">
+          <h3 className="text-2xl md:text-6xl font-bold max-w-3xl leading-tight text-center">
             My Portfolio
           </h3>
         </div>
 
-        <motion.div
-          className="space-y-10"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <div className="full-bleed-wrapper">
-            <div className="grid gap-8">
-              <div className="project-marquee overflow-hidden bg-black/40 relative">
-                <div className="carousel-border-left" />
-                <div className="carousel-border-right" />
-                <div className="project-track track-left flex gap-6 py-6">
-                  {topProjects.concat(topProjects).map((project, index) => (
-                    <div
-                      key={`top-${project.title}-${index}`}
-                      className="project-carousel-card min-w-[240px] md:min-w-[280px] flex-shrink-0 flex flex-col"
-                    >
-                      <div className="project-image">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="project-card-body p-4 flex flex-col gap-3 flex-1">
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="text-xs uppercase tracking-[0.3em] text-green-400">
-                            {project.genre}
-                          </span>
-                          <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70 font-medium whitespace-nowrap">
-                            {project.type}
-                          </span>
-                        </div>
-                        <h3 className="text-lg font-bold text-white">
+        <div className="full-bleed-wrapper">
+          <div className="grid gap-8">
+            <div className="project-marquee overflow-hidden relative">
+              <div className="carousel-border-left" />
+              <div className="carousel-border-right" />
+              <div className="project-track track-left flex gap-6 py-6">
+                {topProjects.concat(topProjects).map((project, index) => (
+                  <div
+                    key={`top-${project.title}-${index}`}
+                    className="project-carousel-card min-w-[240px] md:min-w-[280px] flex-shrink-0 flex flex-col"
+                  >
+                    <div className="project-image">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="project-card-body p-4 flex flex-col gap-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className="font-bold text-white">
                           {project.title}
                         </h3>
-                        <button
-                          type="button"
-                          className="steam-link-btn mt-auto"
-                          onClick={(e) => {
-                            e.stopPropagation();
-
-                            if (project.link) {
-                              window.open(
-                                project.link,
-                                "_blank",
-                                "noopener,noreferrer",
-                              );
-                            }
-                          }}
-                        >
-                          <img src="/images/steam.svg" alt="Steam" />
-                          <span>View on Steam</span>
-                        </button>
+                        <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70 font-medium whitespace-nowrap">
+                          {project.type}
+                        </span>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                      <span className="text-xs uppercase tracking-[0.3em] text-green-400">
+                        {project.genre}
+                      </span>
 
-              <div className="project-marquee overflow-hidden bg-black/40 relative">
-                <div className="carousel-border-left" />
-                <div className="carousel-border-right" />
-                <div className="project-track track-right flex gap-6 py-6">
-                  {bottomProjects
-                    .concat(bottomProjects)
-                    .map((project, index) => (
-                      <div
-                        key={`bottom-${project.title}-${index}`}
-                        className="project-carousel-card min-w-[240px] md:min-w-[280px] flex-shrink-0 flex flex-col"
+                      <button
+                        type="button"
+                        className="steam-link-btn mt-auto"
+                        onClick={(e) => {
+                          e.stopPropagation();
+
+                          if (project.link) {
+                            window.open(
+                              project.link,
+                              "_blank",
+                              "noopener,noreferrer",
+                            );
+                          }
+                        }}
                       >
-                        <div className="project-image">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="project-card-body p-4 flex flex-col gap-3 flex-1">
-                          <div className="flex items-center justify-between gap-2">
-                            <span className="text-xs uppercase tracking-[0.3em] text-green-400">
-                              {project.genre}
-                            </span>
-                            <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70 font-medium whitespace-nowrap">
-                              {project.type}
-                            </span>
-                          </div>
-                          <h3 className="text-lg font-bold text-white">
-                            {project.title}
-                          </h3>
-                          <button
-                            type="button"
-                            className="steam-link-btn mt-auto"
-                            onClick={(e) => {
-                              e.stopPropagation();
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/images/steam.svg" alt="Steam" />
+                        <span>View on Steam</span>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-                              if (project.link) {
-                                window.open(
-                                  project.link,
-                                  "_blank",
-                                  "noopener,noreferrer",
-                                );
-                              }
-                            }}
-                          >
-                            <img src="/images/steam.svg" alt="Steam" />
-                            <span>View on Steam</span>
-                          </button>
-                        </div>
+            <div className="project-marquee overflow-hidden relative">
+              <div className="carousel-border-left" />
+              <div className="carousel-border-right" />
+              <div className="project-track track-right flex gap-6 py-6">
+                {bottomProjects.concat(bottomProjects).map((project, index) => (
+                  <div
+                    key={`bottom-${project.title}-${index}`}
+                    className="project-carousel-card min-w-[240px] md:min-w-[280px] flex-shrink-0 flex flex-col"
+                  >
+                    <div className="project-image">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={project.image} alt={project.title} />
+                    </div>
+                    <div className="project-card-body p-4 flex flex-col gap-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className="font-bold text-white">
+                          {project.title}
+                        </h3>
+                        <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70 font-medium whitespace-nowrap">
+                          {project.type}
+                        </span>
                       </div>
-                    ))}
-                </div>
+                      <span className="text-xs uppercase tracking-[0.3em] text-green-400">
+                        {project.genre}
+                      </span>
+
+                      <button
+                        type="button"
+                        className="steam-link-btn mt-auto"
+                        onClick={(e) => {
+                          e.stopPropagation();
+
+                          if (project.link) {
+                            window.open(
+                              project.link,
+                              "_blank",
+                              "noopener,noreferrer",
+                            );
+                          }
+                        }}
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/images/steam.svg" alt="Steam" />
+                        <span>View on Steam</span>
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
       <div className="site-divider"></div>
       {/* Reviews */}
@@ -794,11 +706,11 @@ export default function GamingLocalizationPortfolio() {
         className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 relative"
       >
         <div className="mb-14">
-          <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
+          <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4 text-center">
             Reviews
           </div>
 
-          <h3 className="text-2xl md:text-4xl md:text-5xl font-bold">
+          <h3 className="text-2xl md:text-5xl font-bold text-center">
             What my clients say
           </h3>
         </div>
@@ -807,7 +719,7 @@ export default function GamingLocalizationPortfolio() {
           <div key={reviewIndex} className="review-card">
             <div className="review-badge">
               <div>{reviews[reviewIndex].company}</div>
-              <div className="text-white/50">{reviews[reviewIndex].role}</div>
+              <div className="text-white">{reviews[reviewIndex].role}</div>
             </div>
             <div className="text-sm text-white/50"></div>
             <p className="text-white/75 leading-relaxed mb-6">
@@ -862,7 +774,7 @@ export default function GamingLocalizationPortfolio() {
             Contact
           </div>
 
-          <h3 className="text-2xl md:text-4xl md:text-6xl font-bold mb-6">
+          <h3 className="text-2xl md:text-6xl font-bold mb-6">
             Let’s Work Together
           </h3>
 
@@ -875,7 +787,7 @@ export default function GamingLocalizationPortfolio() {
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="grid md:grid-cols-2 gap-4 md:p-6">
+          <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
                 Name
@@ -901,7 +813,7 @@ export default function GamingLocalizationPortfolio() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4 md:p-6">
+          <div className="grid md:grid-cols-3 gap-4">
             <div>
               <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
                 Budget
