@@ -2,20 +2,20 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "Game Localization | Locsmith",
+  title: "Locsmith Localization | Game Localization Services",
   description:
     "Professional video game localization focused on immersive storytelling, natural dialogue, and culturally adapted player experiences.",
 
   openGraph: {
-    title: "Locsmith Localization",
+    title: "Locsmith Localization | Game Localization Services",
     description:
       "Immersive storytelling & professional game localization services.",
     url: "https://locsmith.de",
-    siteName: "Localization Portfolio",
+    siteName: "Locsmith Localization",
     type: "website",
     images: [
       {
-        url: "./public/images/transparent-logo.png",
+        url: "/images/transparent-logo.png",
         width: 1200,
         height: 630,
       },
