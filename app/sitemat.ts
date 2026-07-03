@@ -6,5 +6,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://locsmith.de",
       lastModified: new Date(),
     },
+    {
+      url: "https://locsmith.de/#projects",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://locsmith.de/#reviews",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://locsmith.de/#contact",
+      lastModified: new Date(),
+    },
   ];
 }
