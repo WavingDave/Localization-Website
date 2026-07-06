@@ -685,6 +685,14 @@
 .form-input:focus {
   @apply border-emerald-400;
 }
+.input-error {
+  @apply border-red-400;
+}
+
+.input-error-message {
+  @apply mt-2 ml-2 text-sm text-red-400;
+  animation: fadeIn 0.25s ease;
+}
 
 .submit-btn {
   @apply px-6 py-3 my-2
@@ -737,6 +745,30 @@
   }
   to {
     transform: translate(-60px, 50px);
+  }
+}
+
+.form-message {
+  @apply mt-4 rounded-2xl border px-5 py-4 text-center font-medium backdrop-blur-xl;
+  animation: fadeIn 0.3s ease;
+}
+
+.form-message.success {
+  @apply bg-green-500/10 border-green-400/40 text-green-300;
+}
+
+.form-message.error {
+  @apply bg-red-500/10 border-red-400/40 text-red-300;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

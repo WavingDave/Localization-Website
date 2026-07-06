@@ -9,35 +9,70 @@ export default function GamingLocalizationPortfolio() {
   const [reviewIndex, setReviewIndex] = useState(0);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const lastScrollTopRef = useRef(0);
+  const [mailStatus, setMailStatus] = useState<"success" | "error" | null>(
+    null,
+  );
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+  }>({});
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
 
+    const form = e.currentTarget;
     const formData = new FormData(form);
+    const name = formData.get("name")?.toString().trim() || "";
+    const email = formData.get("email")?.toString().trim() || "";
+
+    const newErrors: {
+      name?: string;
+      email?: string;
+    } = {};
+
+    if (!name) {
+      newErrors.name = "You forgot your name!";
+    }
+
+    if (!email) {
+      newErrors.email = "You forgot your email!";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
 
     const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
+      name,
+      email,
       budget: formData.get("budget"),
       deadline: formData.get("deadline"),
       wordCount: formData.get("wordCount"),
       message: formData.get("message"),
     };
 
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    if (response.ok) {
-      alert("Message sent successfully!");
-      form.reset(); // statt e.currentTarget.reset()
-    } else {
-      alert("Something went wrong.");
+      if (response.ok) {
+        setMailStatus("success");
+        form.reset();
+      } else {
+        setMailStatus("error");
+      }
+    } catch {
+      setMailStatus("error");
     }
   };
 
@@ -369,7 +404,7 @@ export default function GamingLocalizationPortfolio() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/transparent-logo.svg"
-              alt="Locsmith Localization"
+              alt="Locsmith Localization - Game Localization Services"
               className="h-14 w-14 md:h-24 md:w-24"
             />
 
@@ -797,26 +832,34 @@ export default function GamingLocalizationPortfolio() {
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
-                Name
+                Name <span className="text-red-400">*</span>
               </label>
               <input
                 name="name"
                 type="text"
                 placeholder="Your name"
-                className="form-input"
+                className={`form-input ${errors.name ? "input-error" : ""}`}
               />
+
+              {errors.name && (
+                <p className="input-error-message">{errors.name}</p>
+              )}
             </div>
 
             <div>
               <label className="block text-xs md:text-sm uppercase tracking-wider text-white/60 mt-3 mb-1 ml-2">
-                Email
+                Email <span className="text-red-400">*</span>
               </label>
               <input
                 name="email"
                 type="email"
                 placeholder="your@email.com"
-                className="form-input"
+                className={`form-input ${errors.email ? "input-error" : ""}`}
               />
+
+              {errors.email && (
+                <p className="input-error-message">{errors.email}</p>
+              )}
             </div>
           </div>
 
@@ -874,6 +917,17 @@ export default function GamingLocalizationPortfolio() {
           <button type="submit" className="submit-btn">
             Send Project Inquiry
           </button>
+          {mailStatus === "success" && (
+            <div className="form-message success">
+              ✓ Message sent successfully!
+            </div>
+          )}
+
+          {mailStatus === "error" && (
+            <div className="form-message error">
+              ✕ Message could not be sent. Please try again later.
+            </div>
+          )}
         </form>
       </section>
       <div className="site-divider"></div>
