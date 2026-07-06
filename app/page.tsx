@@ -49,6 +49,12 @@ export default function GamingLocalizationPortfolio() {
       logo: "/images/ttab.png",
       link: "https://totranscreationandbeyond.com/",
     },
+    {
+      company: "ReasonLoc",
+      slogan: "YOUR DO IT WELL BUTTON",
+      logo: "/images/reasonloc.png",
+      link: "https://reasonloc.com/",
+    },
   ];
 
   const reviews = [
@@ -59,10 +65,10 @@ export default function GamingLocalizationPortfolio() {
         "Dave delivered an exceptional translation of The Last Flame from English to German. The game's complexity demands a deep understanding of nuance and carefully chosen keywords, and Dave approached every aspect of the work with precision! His translation was consistent and high-quality throughout, and even as the game evolved through multiple updates, he always delivered on time. On top of his translator's skill, his communication was clear and proactive all along the project. I highly recommend Dave! Here! let me know if you would like me to change something",
     },
     {
-      company: "VSDeptor- Forage Wizard",
+      company: "VMerchant- Forage Wizard",
       role: "Lost Maxim Games",
       quote:
-        "Dave translated Forage Wizard into German. 15% of our players were German in the first few weeks of release. That's 5,000 Germans! We never had a single complaint about the localization from any of those German players, only compliments. Dave was professional kind and helpful. He also tested our game and discovered multiple issues that we had missed ourselves. I couldn't recommend him more. Just DM me for a reference, @vsdebtor on discord (Lost Maxim Games).",
+        "Dave translated Forage Wizard into German. 15% of our players were German in the first few weeks of release. That's 5,000 Germans! We never had a single complaint about the localization from any of those German players, only compliments. Dave was professional kind and helpful. He also tested our game and discovered multiple issues that we had missed ourselves. I couldn't recommend him more. Just DM me for a reference, @vmerchant on discord (Lost Maxim Games).",
     },
     {
       company: "Bitstream - Cubetory",
