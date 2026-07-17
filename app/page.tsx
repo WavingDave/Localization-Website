@@ -527,9 +527,11 @@ export default function GamingLocalizationPortfolio() {
       <div className="site-divider"></div>
       {/* About heading*/}
       <section className="max-w-6xl mx-auto space-y-12">
-        <div className=" uppercase tracking-[0.3em] text-sm mb-4">
-          <p className="text-green-400 pb-4">About Me</p>
-          <h3 className="text-xl md:text-2xl font-bold mb-8">
+        <div className="uppercase tracking-[0.3em] text-sm mb-6">
+          <p className="inline-block rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-emerald-300 mb-4">
+            About Me
+          </p>
+          <h3 className="text-xl md:text-2xl font-bold mb-8 text-white leading-tight">
             What started as a passion project <br />
             turned into a growing localization business.
           </h3>
@@ -537,11 +539,12 @@ export default function GamingLocalizationPortfolio() {
 
         <div>
           {/* About content */}
-          {/* Block 1*/}
-          <div className="text-white/70 text-base md:text-lg leading-relaxed space-y-6">
-            <h3 className="text-green-400 text-xl pb-4">
-              The Legend of Locsmith Localization
-            </h3>
+          <div className="relative rounded-[2rem] p-[1px] bg-gradient-to-br from-emerald-400/70 via-green-400/20 to-cyan-400/60 shadow-[0_0_45px_rgba(52,211,153,0.12)]">
+            <div className="rounded-[calc(2rem-1px)] bg-[#060606]/90 p-8 md:p-10 lg:p-12 backdrop-blur-xl">
+              <div className="text-white/80 text-base md:text-lg leading-relaxed space-y-8">
+                <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-lime-200 to-green-400 text-xl md:text-2xl font-semibold pb-2">
+                  The Legend of Locsmith Localization
+                </h3>
             <motion.div
               className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
               variants={fadeLeft}
@@ -561,12 +564,6 @@ export default function GamingLocalizationPortfolio() {
                 impact, gameplay clarity, and full immersion, so that every word
                 and every story may reveal its true power.
               </p>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/sushi.jpg"
-                alt="About Me"
-                className="w-full rounded-2xl object-cover"
-              />
             </motion.div>
 
             {/* Block 2*/}
@@ -591,12 +588,6 @@ export default function GamingLocalizationPortfolio() {
                 goal is to let players feel the story as if it were born in
                 their own language, fully immersive and true.
               </p>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/sushi.jpg"
-                alt="About Me"
-                className="hidden lg:block w-full rounded-2xl object-cover order-2 lg:order-1"
-              />
             </motion.div>
             {/* Block 3*/}
             <motion.div
@@ -615,13 +606,9 @@ export default function GamingLocalizationPortfolio() {
                 for gaming grew, and now, at 31, I finally forge a life around
                 what I truly love—crafting adventures for others to experience.
               </p>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/sushi.jpg"
-                alt="About Me"
-                className="w-full rounded-2xl object-cover"
-              />
             </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
