@@ -545,68 +545,70 @@ export default function GamingLocalizationPortfolio() {
                 <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-lime-200 to-green-400 text-xl md:text-2xl font-semibold pb-2">
                   The Legend of Locsmith Localization
                 </h3>
-            <motion.div
-              className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-              variants={fadeLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <p>
-                It all began as a daring endeavor, a one-time project for a game
-                I held dear. With pen and heart, I translated the words of its
-                creator, delving deep into their crafted world. Each line was
-                carefully forged and honed, carrying not just meaning, but the
-                very soul of the original. What began as a fan project grew into
-                a calling: I founded Locsmith Localization, a forge where video
-                games are masterfully translated and adapted for German-speaking
-                gamers. My craft goes beyond mere words – I preserve emotional
-                impact, gameplay clarity, and full immersion, so that every word
-                and every story may reveal its true power.
-              </p>
-            </motion.div>
+                <motion.div
+                  className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+                  variants={fadeLeft}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <p>
+                    It all began as a daring endeavor, a one-time project for a
+                    game I held dear. With pen and heart, I translated the words
+                    of its creator, delving deep into their crafted world. Each
+                    line was carefully forged and honed, carrying not just
+                    meaning, but the very soul of the original. What began as a
+                    fan project grew into a calling: I founded Locsmith
+                    Localization, a forge where video games are masterfully
+                    translated and adapted for German-speaking gamers. My craft
+                    goes beyond mere words – I preserve emotional impact,
+                    gameplay clarity, and full immersion, so that every word and
+                    every story may reveal its true power.
+                  </p>
+                </motion.div>
 
-            {/* Block 2*/}
-            <motion.div
-              className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-              variants={fadeRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <p className="order-1 lg:order-2">
-                From humble indie titles to sprawling RPGs, I aid developers in
-                crafting authentic, handcrafted experiences that feel truly
-                native to their players. Every word is forged by my own hand. I
-                take great joy in my work as a wordsmith and refuse to rely on
-                AI, ensuring that the highest quality is maintained in every
-                line.
-                <br />
-                <br />
-                Each project is a new quest, where every sentence and phrase is
-                carefully tempered to preserve the spirit of the original. My
-                goal is to let players feel the story as if it were born in
-                their own language, fully immersive and true.
-              </p>
-            </motion.div>
-            {/* Block 3*/}
-            <motion.div
-              className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-              variants={fadeLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <p>
-                I still remember the first game that ever captured my heart: The
-                Legend of Dragoon on the PSX back in 2001. I was only 7, perched
-                at my older sister’s side, eyes wide as I watched her every
-                move, gasping at every perilous creature. From that moment, my
-                journey began. With countless RPGs from the old days, my love
-                for gaming grew, and now, at 31, I finally forge a life around
-                what I truly love—crafting adventures for others to experience.
-              </p>
-            </motion.div>
+                {/* Block 2*/}
+                <motion.div
+                  className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+                  variants={fadeRight}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <p className="order-1 lg:order-2">
+                    From humble indie titles to sprawling RPGs, I aid developers
+                    in crafting authentic, handcrafted experiences that feel
+                    truly native to their players. Every word is forged by my
+                    own hand. I take great joy in my work as a wordsmith and
+                    refuse to rely on AI, ensuring that the highest quality is
+                    maintained in every line.
+                    <br />
+                    <br />
+                    Each project is a new quest, where every sentence and phrase
+                    is carefully tempered to preserve the spirit of the
+                    original. My goal is to let players feel the story as if it
+                    were born in their own language, fully immersive and true.
+                  </p>
+                </motion.div>
+                {/* Block 3*/}
+                <motion.div
+                  className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+                  variants={fadeLeft}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <p>
+                    I still remember the first game that ever captured my heart:
+                    The Legend of Dragoon on the PSX back in 2001. I was only 7,
+                    perched at my older sister’s side, eyes wide as I watched
+                    her every move, gasping at every perilous creature. From
+                    that moment, my journey began. With countless RPGs from the
+                    old days, my love for gaming grew, and now, at 31, I finally
+                    forge a life around what I truly love—crafting adventures
+                    for others to experience.
+                  </p>
+                </motion.div>
               </div>
             </div>
           </div>
