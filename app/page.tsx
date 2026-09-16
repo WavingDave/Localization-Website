@@ -1,14 +1,25 @@
 "use client";
 import "./page.css";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 
 export default function GamingLocalizationPortfolio() {
   const glowRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [aboutStep, setAboutStep] = useState(0);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const lastScrollTopRef = useRef(0);
+  const getAboutCardPosition = (step: number) => {
+    const distance = (step - aboutStep + 3) % 3;
+
+    if (distance === 0) return "is-active";
+    if (distance === 1) return "is-next";
+    return "is-previous";
+  };
+
+  const changeAboutStep = (direction: number) => {
+    setAboutStep((step) => (step + direction + 3) % 3);
+  };
   const [mailStatus, setMailStatus] = useState<"success" | "error" | null>(
     null,
   );
@@ -95,12 +106,12 @@ export default function GamingLocalizationPortfolio() {
   const reviews = [
     {
       company: "Hotloop - The Last Flame",
-      role: "Solo dev",
+      role: "Hotloop Games",
       quote:
         "Dave delivered an exceptional translation of The Last Flame from English to German. The game's complexity demands a deep understanding of nuance and carefully chosen keywords, and Dave approached every aspect of the work with precision! His translation was consistent and high-quality throughout, and even as the game evolved through multiple updates, he always delivered on time. On top of his translator's skill, his communication was clear and proactive all along the project. I highly recommend Dave! Here! let me know if you would like me to change something",
     },
     {
-      company: "VMerchant- Forage Wizard",
+      company: "VMerchant - Forage Wizard",
       role: "Lost Maxim Games",
       quote:
         "Dave translated Forage Wizard into German. 15% of our players were German in the first few weeks of release. That's 5,000 Germans! We never had a single complaint about the localization from any of those German players, only compliments. Dave was professional kind and helpful. He also tested our game and discovered multiple issues that we had missed ourselves. I couldn't recommend him more. Just DM me for a reference, @vmerchant on discord (Lost Maxim Games).",
@@ -123,35 +134,12 @@ export default function GamingLocalizationPortfolio() {
       quote:
         "Dave and I worked together on translations for several games. He was always quick and responsive to our last-minute requests and pings, plus he worked hard to make our games' silly, punny cultural references make sense to a German audience. He is a very competent contributor with a good fingerspitzengefühl for the idiosyncrasies of the German language! 😄",
     },
+    {
+      company: "Joseph - Dimraeth",
+      role: "Mudtek",
+      quote: "",
+    },
   ];
-
-  const fadeLeft = {
-    hidden: {
-      opacity: 0,
-      x: -100,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-      },
-    },
-  };
-
-  const fadeRight = {
-    hidden: {
-      opacity: 0,
-      x: 100,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-      },
-    },
-  };
 
   useEffect(() => {
     if (window.innerWidth < 1024) return;
@@ -244,6 +232,13 @@ export default function GamingLocalizationPortfolio() {
       link: "https://store.steampowered.com/app/2820700/A_Gentlemens_Dispute/",
     },
     {
+      title: "Dimraeth",
+      genre: "Online-Koop Souls-like Action RPG",
+      type: "LQA",
+      image: "/images/dimraeth.jpg",
+      link: "https://store.steampowered.com/app/2402680/Dimraeth/",
+    },
+    {
       title: "Forage Wizard",
       genre: "Crafting Automation Builder",
       type: "Full Game",
@@ -329,10 +324,17 @@ export default function GamingLocalizationPortfolio() {
     },
     {
       title: "Sushi On Wheels",
+      genre: "Loot-Idler Desktop Companion",
+      type: "Steam Page",
+      image: "/images/splonk.jpg",
+      link: "https://store.steampowered.com/app/3749760/Sushi_On_Wheels/",
+    },
+    {
+      title: "Roll with Splonk",
       genre: "Cooking Management Simulation",
       type: "Steam Page",
       image: "/images/sushi.jpg",
-      link: "https://store.steampowered.com/app/3749760/Sushi_On_Wheels/",
+      link: "https://store.steampowered.com/app/4558350/Roll_with_Splonk/",
     },
     {
       title: "Danger World",
@@ -502,7 +504,7 @@ export default function GamingLocalizationPortfolio() {
 
                   <div className="hero-specialization-tags">
                     {[
-                      "From AAA to Indie Games",
+                      "Indie Games",
                       "Roguelites & Roguelikes",
                       "RPGs & JRPGs",
                       "Incremental Games",
@@ -525,33 +527,25 @@ export default function GamingLocalizationPortfolio() {
         </div>
       </section>
       <div className="site-divider"></div>
-      {/* About heading*/}
-      <section className="max-w-6xl mx-auto space-y-12">
-        <div className="uppercase tracking-[0.3em] text-sm mb-6">
-          <p className="inline-block rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-emerald-300 mb-4">
-            About Me
-          </p>
-          <h3 className="text-xl md:text-2xl font-bold mb-8 text-white leading-tight">
-            What started as a passion project <br />
-            turned into a growing localization business.
-          </h3>
-        </div>
+      <section className="about-section max-w-7xl mx-auto px-6 py-20 md:py-28">
+        <div className="about-layout about-layout--text-only">
+          <div className="about-copy">
+            <p className="about-eyebrow">About me</p>
+            <h3>The Legend of Locsmith Localization</h3>
+            <div className="about-stepper">
+              <div className="about-stepper-topline">
+                <span>Chapter {aboutStep + 1} of 3</span>
+                <span>
+                  {aboutStep === 0
+                    ? "The beginning"
+                    : aboutStep === 1
+                      ? "The craft"
+                      : "The reason"}
+                </span>
+              </div>
 
-        <div>
-          {/* About content */}
-          <div className="relative rounded-[2rem] p-[1px] bg-gradient-to-br from-emerald-400/70 via-green-400/20 to-cyan-400/60 shadow-[0_0_45px_rgba(52,211,153,0.12)]">
-            <div className="rounded-[calc(2rem-1px)] bg-[#060606]/90 p-8 md:p-10 lg:p-12 backdrop-blur-xl">
-              <div className="text-white/80 text-base md:text-lg leading-relaxed space-y-8">
-                <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-lime-200 to-green-400 text-xl md:text-2xl font-semibold pb-2">
-                  The Legend of Locsmith Localization
-                </h3>
-                <motion.div
-                  className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-                  variants={fadeLeft}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+              <div className="about-carousel-stage">
+                <div className={`about-step-box ${getAboutCardPosition(0)}`}>
                   <p>
                     It all began as a daring endeavor, a one-time project for a
                     game I held dear. With pen and heart, I translated the words
@@ -561,56 +555,76 @@ export default function GamingLocalizationPortfolio() {
                     fan project grew into a calling: I founded Locsmith
                     Localization, a forge where video games are masterfully
                     translated and adapted for German-speaking gamers. My craft
-                    goes beyond mere words – I preserve emotional impact,
+                    goes beyond mere words - I preserve emotional impact,
                     gameplay clarity, and full immersion, so that every word and
                     every story may reveal its true power.
                   </p>
-                </motion.div>
+                </div>
 
-                {/* Block 2*/}
-                <motion.div
-                  className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-                  variants={fadeRight}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <p className="order-1 lg:order-2">
+                <div className={`about-step-box ${getAboutCardPosition(1)}`}>
+                  <p>
                     From humble indie titles to sprawling RPGs, I aid developers
                     in crafting authentic, handcrafted experiences that feel
                     truly native to their players. Every word is forged by my
                     own hand. I take great joy in my work as a wordsmith and
                     refuse to rely on AI, ensuring that the highest quality is
-                    maintained in every line.
-                    <br />
-                    <br />
-                    Each project is a new quest, where every sentence and phrase
-                    is carefully tempered to preserve the spirit of the
-                    original. My goal is to let players feel the story as if it
-                    were born in their own language, fully immersive and true.
+                    maintained in every line. Each project is a new quest, where
+                    every sentence and phrase is carefully tempered to preserve
+                    the spirit of the original. My goal is to let players feel
+                    the story as if it were born in their own language, fully
+                    immersive and true.
                   </p>
-                </motion.div>
-                {/* Block 3*/}
-                <motion.div
-                  className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-                  variants={fadeLeft}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+                </div>
+
+                <div className={`about-step-box ${getAboutCardPosition(2)}`}>
                   <p>
                     I still remember the first game that ever captured my heart:
                     The Legend of Dragoon on the PSX back in 2001. I was only 7,
-                    perched at my older sister’s side, eyes wide as I watched
-                    her every move, gasping at every perilous creature. From
-                    that moment, my journey began. With countless RPGs from the
-                    old days, my love for gaming grew, and now, at 31, I finally
-                    forge a life around what I truly love—crafting adventures
-                    for others to experience.
+                    perched at my older sister&apos;s side, eyes wide as I
+                    watched her every move, gasping at every perilous creature.
+                    From that moment, my journey began. With countless RPGs from
+                    the old days, my love for gaming grew, and now, at 31, I
+                    finally forge a life around what I truly love - crafting
+                    adventures for others to experience.
                   </p>
-                </motion.div>
+                </div>
+              </div>
+
+              <div className="about-stepper-actions">
+                <button
+                  type="button"
+                  className="about-step-button about-step-button--back"
+                  onClick={() => changeAboutStep(-1)}
+                >
+                  <span aria-hidden="true">←</span> Back
+                </button>
+                <div
+                  className="about-step-dots"
+                  aria-label="Choose text chapter"
+                >
+                  {[0, 1, 2].map((step) => (
+                    <button
+                      key={step}
+                      type="button"
+                      className={`about-step-dot ${aboutStep === step ? "is-active" : ""}`}
+                      onClick={() => setAboutStep(step)}
+                      aria-label={`Show chapter ${step + 1}`}
+                      aria-current={aboutStep === step ? "step" : undefined}
+                    />
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  className="about-step-button"
+                  onClick={() => changeAboutStep(1)}
+                >
+                  Continue <span aria-hidden="true">→</span>
+                </button>
               </div>
             </div>
+            <a href="#contact" className="about-link">
+              Start a conversation <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </section>
