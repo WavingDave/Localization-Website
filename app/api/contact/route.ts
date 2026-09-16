@@ -6,6 +6,19 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     const { name, email, budget, deadline, wordCount, message } = body;
+    const requiredEnv = [
+      "SMTP_HOST",
+      "SMTP_PORT",
+      "SMTP_USER",
+      "SMTP_PASS",
+    ] as const;
+    const missingEnv = requiredEnv.filter((key) => !process.env[key]);
+
+    if (missingEnv.length > 0) {
+      throw new Error(
+        `Missing SMTP environment variables: ${missingEnv.join(", ")}`,
+      );
+    }
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -44,7 +57,16 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error(error);
+    if (error instanceof Error) {
+      console.error("Contact form email failed:", {
+        message: error.message,
+        code: "code" in error ? error.code : undefined,
+        response: "response" in error ? error.response : undefined,
+        responseCode: "responseCode" in error ? error.responseCode : undefined,
+      });
+    } else {
+      console.error("Contact form email failed:", error);
+    }
 
     return NextResponse.json({ success: false }, { status: 500 });
   }
