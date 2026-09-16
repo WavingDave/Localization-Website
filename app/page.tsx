@@ -422,13 +422,20 @@ export default function GamingLocalizationPortfolio() {
             </div>
           </div>
 
-          <nav className="hidden md:flex gap-8 text-xs md:text-sm uppercase tracking-wider text-white/70">
+          <nav className="hidden md:flex gap-8 text-xs md:text-md uppercase tracking-wider text-white/70">
             <a
               href="#hero"
               className="hover:text-green-400 transition-colors text-base md:text-lg"
             >
               Back to Top
             </a>
+            <a
+              href="#about"
+              className="hover:text-green-400 transition-colors text-base md:text-lg"
+            >
+              About me
+            </a>
+
             <a
               href="#projects"
               className="hover:text-green-400 transition-colors text-base md:text-lg"
@@ -535,7 +542,10 @@ export default function GamingLocalizationPortfolio() {
         </div>
       </section>
       <div className="site-divider"></div>
-      <section className="about-section max-w-7xl mx-auto px-6 py-20 md:py-28">
+      <section
+        className="about-section max-w-7xl mx-auto px-6 py-20 md:py-28"
+        id="about"
+      >
         <div className="about-layout about-layout--text-only">
           <div className="about-copy">
             <p className="about-eyebrow">About me</p>
