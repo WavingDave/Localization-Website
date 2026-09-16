@@ -416,7 +416,9 @@ export default function GamingLocalizationPortfolio() {
                 <span> Localization</span>
               </div>
 
-              <p className="text-xs text-white/60 mt-1">by David Becker</p>
+              <p className="text-xs text-white/60 mt-1">
+                by Dave the Localizer
+              </p>
             </div>
           </div>
 
@@ -444,6 +446,12 @@ export default function GamingLocalizationPortfolio() {
               className="hover:text-green-400 transition-colors text-base md:text-lg"
             >
               Contact
+            </a>
+            <a
+              href="#partners"
+              className="hover:text-green-400 transition-colors text-base md:text-lg"
+            >
+              Partners
             </a>
           </nav>
         </div>
@@ -630,8 +638,8 @@ export default function GamingLocalizationPortfolio() {
       </section>
       <div className="site-divider"></div>
       {/* Projects */}
-      <section id="projects" className="max-w-7xl mx-auto px-6 py-24">
-        <div className="mb-16">
+      <section id="projects" className="projects-section max-w-7xl mx-auto px-6 py-24">
+        <div className="projects-heading mb-16">
           <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
             Featured Projects
           </div>
