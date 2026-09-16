@@ -638,7 +638,10 @@ export default function GamingLocalizationPortfolio() {
       </section>
       <div className="site-divider"></div>
       {/* Projects */}
-      <section id="projects" className="projects-section max-w-7xl mx-auto px-6 py-24">
+      <section
+        id="projects"
+        className="projects-section max-w-7xl mx-auto px-6 py-24"
+      >
         <div className="projects-heading mb-16">
           <div className="text-green-400 uppercase tracking-[0.3em] text-sm mb-4">
             Featured Projects
