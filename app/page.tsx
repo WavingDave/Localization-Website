@@ -135,6 +135,12 @@ export default function GamingLocalizationPortfolio() {
         "Dave and I worked together on translations for several games. He was always quick and responsive to our last-minute requests and pings, plus he worked hard to make our games' silly, punny cultural references make sense to a German audience. He is a very competent contributor with a good fingerspitzengefühl for the idiosyncrasies of the German language! 😄",
     },
     {
+      company: "Bicho Feo - Astra Bestiary",
+      role: "Solo Dev",
+      quote:
+        "Dave handled the DE translation LQA for the demo of Astra Bestiary. He used his knowledge both in german and in videogames to polish the translations to make them natively correct while at the same time respecting character limits and consistency. Definitely recommended!",
+    },
+    {
       company: "Joseph - Dimraeth",
       role: "Mudtek",
       quote: "",
@@ -250,7 +256,7 @@ export default function GamingLocalizationPortfolio() {
       genre: "Cozy Relaxing Sandbox Builder",
       type: "Steam Page",
       image: "/images/Sandcastle.jpg",
-      link: "hhttps://store.steampowered.com/app/3216520/Sandcastle/",
+      link: "https://store.steampowered.com/app/3216520/Sandcastle/",
     },
     {
       title: "Starvester",
@@ -258,6 +264,13 @@ export default function GamingLocalizationPortfolio() {
       type: "Demo",
       image: "/images/starvester.jpg",
       link: "https://store.steampowered.com/app/4194800/Starvester/",
+    },
+    {
+      title: "Starvester",
+      genre: "Creature Collector Turn-Based Combat JRPG",
+      type: "LQA",
+      image: "/images/astra.jpg",
+      link: "https://store.steampowered.com/app/3529090/Astra_Bestiary/",
     },
     {
       title: "Cubetory",
@@ -271,7 +284,7 @@ export default function GamingLocalizationPortfolio() {
       genre: "Roguelike Strategy Adventure",
       type: "Full Game",
       image: "/images/reclaim_the_sea.jpg",
-      link: "https://store.steampowered.com/app/1830970/The_Last_Flame/",
+      link: "https://store.steampowered.com/app/2096860/Reclaim_The_Sea/",
     },
     {
       title: "Free as Birds : UAZO",
@@ -326,14 +339,14 @@ export default function GamingLocalizationPortfolio() {
       title: "Sushi On Wheels",
       genre: "Loot-Idler Desktop Companion",
       type: "Steam Page",
-      image: "/images/splonk.jpg",
+      image: "/images/sushi.jpg",
       link: "https://store.steampowered.com/app/3749760/Sushi_On_Wheels/",
     },
     {
       title: "Roll with Splonk",
       genre: "Cooking Management Simulation",
       type: "Steam Page",
-      image: "/images/sushi.jpg",
+      image: "/images/splonk.jpg",
       link: "https://store.steampowered.com/app/4558350/Roll_with_Splonk/",
     },
     {
@@ -369,7 +382,7 @@ export default function GamingLocalizationPortfolio() {
       genre: "Turn Based Hacking Game",
       type: "Full Game",
       image: "/images/nullstate.jpg",
-      link: "https://store.steampowered.com/app/2166340/Null_State/#app_reviews_hash",
+      link: "https://store.steampowered.com/app/2166340/Null_State/",
     },
     {
       title: "One Last Job",
@@ -508,7 +521,7 @@ export default function GamingLocalizationPortfolio() {
                 </div>
 
                 <div className="hero-stat-card">
-                  <div className="hero-stat-number">80+</div>
+                  <div className="hero-stat-number">100+</div>
                   <div className="hero-stat-label">Hours of LQA</div>
                 </div>
 
