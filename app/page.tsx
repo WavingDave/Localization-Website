@@ -586,7 +586,7 @@ export default function GamingLocalizationPortfolio() {
                     fan project grew into a calling: I founded Locsmith
                     Localization, a forge where video games are masterfully
                     translated and adapted for German-speaking gamers. My craft
-                    goes beyond mere words - I preserve emotional impact,
+                    goes beyond mere words. I preserve emotional impact,
                     gameplay clarity, and full immersion, so that every word and
                     every story may reveal its true power.
                   </p>
@@ -614,8 +614,8 @@ export default function GamingLocalizationPortfolio() {
                     perched at my older sister&apos;s side, eyes wide as I
                     watched her every move, gasping at every perilous creature.
                     From that moment, my journey began. With countless RPGs from
-                    the old days, my love for gaming grew, and now, at 31, I
-                    finally forge a life around what I truly love - crafting
+                    the old days, my love for gaming grew, and now, at 32, I
+                    finally forge a life around what I truly love... Crafting
                     adventures for others to experience.
                   </p>
                 </div>
