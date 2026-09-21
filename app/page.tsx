@@ -140,11 +140,11 @@ export default function GamingLocalizationPortfolio() {
       quote:
         "Dave handled the DE translation LQA for the demo of Astra Bestiary. He used his knowledge both in german and in videogames to polish the translations to make them natively correct while at the same time respecting character limits and consistency. Definitely recommended!",
     },
-    {
+    /* {
       company: "Joseph - Dimraeth",
       role: "Mudtek",
       quote: "",
-    },
+    },*/
   ];
 
   useEffect(() => {
@@ -266,7 +266,7 @@ export default function GamingLocalizationPortfolio() {
       link: "https://store.steampowered.com/app/4194800/Starvester/",
     },
     {
-      title: "Starvester",
+      title: "Astra Bestiary",
       genre: "Creature Collector Turn-Based Combat JRPG",
       type: "LQA",
       image: "/images/astra.jpg",
