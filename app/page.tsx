@@ -108,7 +108,7 @@ export default function GamingLocalizationPortfolio() {
       company: "Hotloop - The Last Flame",
       role: "Hotloop Games",
       quote:
-        "Dave delivered an exceptional translation of The Last Flame from English to German. The game's complexity demands a deep understanding of nuance and carefully chosen keywords, and Dave approached every aspect of the work with precision! His translation was consistent and high-quality throughout, and even as the game evolved through multiple updates, he always delivered on time. On top of his translator's skill, his communication was clear and proactive all along the project. I highly recommend Dave! Here! let me know if you would like me to change something",
+        "Dave delivered an exceptional translation of The Last Flame from English to German. The game's complexity demands a deep understanding of nuance and carefully chosen keywords, and Dave approached every aspect of the work with precision! His translation was consistent and high-quality throughout, and even as the game evolved through multiple updates, he always delivered on time. On top of his translator's skill, his communication was clear and proactive all along the project. I highly recommend Dave! Here!",
     },
     {
       company: "VMerchant - Forage Wizard",
@@ -139,6 +139,12 @@ export default function GamingLocalizationPortfolio() {
       role: "Solo Dev",
       quote:
         "Dave handled the DE translation LQA for the demo of Astra Bestiary. He used his knowledge both in german and in videogames to polish the translations to make them natively correct while at the same time respecting character limits and consistency. Definitely recommended!",
+    },
+    {
+      company: "Doktorn - Ramen Shop Simulator",
+      role: "Sannin Interactive",
+      quote:
+        "Thank you so much for your help Dave and for the project lead! Really really smooth work - despite our chaos haha",
     },
     /* {
       company: "Joseph - Dimraeth",
@@ -264,6 +270,13 @@ export default function GamingLocalizationPortfolio() {
       type: "Demo",
       image: "/images/starvester.jpg",
       link: "https://store.steampowered.com/app/4194800/Starvester/",
+    },
+    {
+      title: "Ramen Shop Simulator",
+      genre: "Relaxing Cooking Simulation",
+      type: "Project Management",
+      image: "/images/ramen.jpg",
+      link: "https://store.steampowered.com/app/3393720/Ramen_Shop_Simulator/",
     },
     {
       title: "Astra Bestiary",
@@ -511,7 +524,7 @@ export default function GamingLocalizationPortfolio() {
             <div className="hero-stats-panel">
               <div className="hero-stats-grid">
                 <div className="hero-stat-card">
-                  <div className="hero-stat-number">1.5M+</div>
+                  <div className="hero-stat-number">1M+</div>
                   <div className="hero-stat-label">Words Translated</div>
                 </div>
 
@@ -541,6 +554,7 @@ export default function GamingLocalizationPortfolio() {
                       "Automation Games",
                       "Story Driven Games",
                       "Autobattler",
+                      "Simulations",
                       "And more...",
                     ].map((item) => (
                       <span key={item} className="hero-tag">
